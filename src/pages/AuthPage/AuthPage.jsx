@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import './AuthPage.css';
 
 const AuthPage = ({setUser}) => {
     const [form, setForm] = useState('');
+    const navigate = useNavigate();
     return (
         <>
             <div className="auth-container">
@@ -15,7 +17,7 @@ const AuthPage = ({setUser}) => {
                         <button onClick={() => setForm('login')}>Log In with Existing Account</button>
                         <button onClick={() => setForm('signup')}>Sign Up for A New Account</button> 
                     </> : 
-                    (form === 'login') ? <LoginForm setUser={setUser}/> : <SignUpForm setUser={setUser} /> 
+                    (form === 'login') ? <LoginForm setForm={setForm} navigate={navigate} setUser={setUser}/> : <SignUpForm setForm={setForm} navigate={navigate} setUser={setUser} /> 
                 }
             </div>   
         </>
