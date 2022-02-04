@@ -6,10 +6,12 @@ nav {
     background-color: var(--navy-blue);
     color: white;
     text-decoration: none;
+    margin: 0 auto;
 }
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 a:visited {

@@ -1,0 +1,23 @@
+.form-container {
+    background-color: var(--gray-dark);
+    width: 90vw;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+
+.form-container form{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 70vw;
+    margin: 0 auto;
+    
+}
+
+.form-container input {
+    margin-bottom: 2vh;
+}

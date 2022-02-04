@@ -11,8 +11,9 @@ const NavBar = ({user, setUser}) => {
     return (
         <nav>
             <Link to="/">Home</Link>
-            &nbsp; | &nbsp; 
-            <Link to="/"></Link>
+            <div>
+                &nbsp; | &nbsp; 
+            </div>
             { user ?
                 <>
                     <span>Welcome {user.name}</span>
@@ -21,8 +22,7 @@ const NavBar = ({user, setUser}) => {
                 </>
                 :
                 <>
-                    &nbsp; | &nbsp;
-                    <Link to="/signup">Log In / Sign Up</Link>
+                    <Link to="/auth">Sign In</Link>
                 </>
             }
         </nav>

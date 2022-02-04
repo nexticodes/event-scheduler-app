@@ -5,6 +5,7 @@ import {getUser} from './../../utilities/users-service';
 import Splash from '../Splash/Splash';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
+import AuthPage from '../AuthPage/AuthPage';
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
         <NavBar setUser={setUser} user={user} /> 
         <Routes>
           {/* Routes will go here. */}
-          <Route path="/" element={<Splash user={user} setUser={setUser} />} />
+          <Route path="/" element={<Splash />} />
+          <Route path="/auth" element={<AuthPage setUser={setUser} user={user} />} />
         </Routes>
         <Footer/>
     </main>

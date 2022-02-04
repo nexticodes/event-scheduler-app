@@ -1,0 +1,23 @@
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    height: 88vh; 
+}
+
+.auth-container hr {
+    width: 80vw;
+}
+
+.auth-container h1 {
+    font-size: 48px;
+    margin-bottom: 5vh;
+}
+
+.auth-container button { 
+     margin: 10px;
+     font-size: 30px;
+}
+
+.auth-container label {
+    color: white;
+}
