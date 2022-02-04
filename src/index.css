@@ -37,9 +37,6 @@ code {
   text-align: center;
 }
 
-.align-rt {
-  text-align: right;
-}
 
 .smaller {
   font-size: smaller;
@@ -63,3 +60,11 @@ code {
   overflow-y: scroll;
 }
 
+
+.txt-align-left {
+  text-align: left;
+}
+
+.txt-align-right {
+  text-align: right;
+}
