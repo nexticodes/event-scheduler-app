@@ -1,0 +1,9 @@
+.splash-title-container .title {
+    margin: 0 auto 2vh auto;
+}
+
+.splash-title-container {
+    padding: 0 10vw 3vh 10vw;
+    margin: 0 auto;
+    background-color: pink;
+}
