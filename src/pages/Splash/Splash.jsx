@@ -12,9 +12,8 @@ const Splash = () => {
                     <h1 className='title'>EVENT SCHEDULER APP</h1>
                     <hr />
                     <h3 className='sub-title'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia nihil vitae obcaecati explicabo cum repudiandae, commodi sint dignissimos assumenda praesentium labore cumque ullam tenetur nobis perspiciatis consequuntur odit veritatis dolores!</h3>
-                    <Link to='/authpage'><button>GET STARTED HERE</button></Link>
+                    <button className='link-button'><Link to='/authpage'>GET STARTED HERE</Link></button>
                 </div>
-                <hr />
                 <About />
                 <hr />
                 <CreatorContainer />

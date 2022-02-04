@@ -1,3 +1,8 @@
 .about-container hr {
     width: 80vw;
 }
+
+.about-content {
+    width: 70vw;
+    margin: 3rem auto;
+}

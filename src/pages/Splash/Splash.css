@@ -6,4 +6,11 @@
     padding: 8vh 10vw 6vh 10vw;
     margin: 0 auto;
     background-color: pink;
+    box-shadow: 0px -2px 10px black inset;
+}
+
+
+.link-button {
+    padding: 20px;
+    font-size: 40px;
 }
