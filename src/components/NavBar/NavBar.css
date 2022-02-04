@@ -1,0 +1,17 @@
+nav {
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--navy-blue);
+    color: white;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}

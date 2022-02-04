@@ -10,10 +10,9 @@ const NavBar = ({user, setUser}) => {
     }
     return (
         <nav>
-            <Link to="/orders">OrderHistory</Link>
+            <Link to="/">Home</Link>
             &nbsp; | &nbsp; 
-            <Link to="/orders/new">New Order</Link>
-            &nbsp; | &nbsp; 
+            <Link to="/"></Link>
             { user ?
                 <>
                     <span>Welcome {user.name}</span>
