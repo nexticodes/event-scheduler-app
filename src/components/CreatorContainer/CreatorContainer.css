@@ -1,0 +1,6 @@
+.creator-container {
+    display: flex;
+    align-items: center;
+    width: 80vw;
+    margin: 0 auto;
+}
