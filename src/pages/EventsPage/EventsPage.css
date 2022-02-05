@@ -1,3 +1,8 @@
+.events-page {
+    height: 100%;
+    max-height: max-content;
+}
+
 .user-profile-container {
     display: flex;
     margin-top: 5vh;
@@ -6,4 +11,11 @@
     justify-content: space-between;
     height: 30vh;
     border: 0px 0px 4px 0px solid var(--gray-light); 
+}
+
+.events-wrapper {
+    background-color: var(--lighter-blue);
+    height: 55vh;
+    margin: 0 auto;
+    overflow-y: hidden;
 }
