@@ -16,7 +16,7 @@ const NavBar = ({user, setUser}) => {
             </div>
             { user ?
                 <>
-                    <span>Welcome {user.name}</span>
+                    <Link to="/events"><span>Welcome {user.name}</span></Link>
                     &nbsp; | &nbsp;
                     <Link to="" onClick={handleLogOut}>Log Out</Link>
                 </>

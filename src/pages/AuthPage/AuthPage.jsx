@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import Footer from '../../components/Footer/Footer';
 import './AuthPage.css';
 
 const AuthPage = ({setUser}) => {
@@ -19,7 +20,8 @@ const AuthPage = ({setUser}) => {
                     </> : 
                     (form === 'login') ? <LoginForm setForm={setForm} navigate={navigate} setUser={setUser}/> : <SignUpForm setForm={setForm} navigate={navigate} setUser={setUser} /> 
                 }
-            </div>   
+            </div>
+            <Footer/>
         </>
     )
 }
