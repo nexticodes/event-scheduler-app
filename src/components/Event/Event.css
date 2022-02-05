@@ -1,0 +1,27 @@
+.event-container {
+    display: flex;
+    align-items: center;
+    padding: 1vh 4vw;
+    height: 15vh;
+    width: 75vw;
+    margin: 1vh 5vw;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.event-filler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    width: 75vw;
+    margin: 1vh 5vw;
+    border: 2px dotted var(--gray-dark)
+}
+
+.event-filler button {
+    display: relative;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+}
