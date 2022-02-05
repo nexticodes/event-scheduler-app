@@ -1,10 +1,14 @@
 import './EventsPage.css';
+import ProfileBox from '../../components/ProfileBox/ProfileBox';
+import ProfileDashboard from '../../components/ProfileDashboard/ProfileDashboard';
 
-const EventsPage = () => {
+const EventsPage = ({user}) => {
     return (
         <>
-            <h1>Yo</h1>
-
+            <div className="user-profile-container">
+                <ProfileBox user={user} />
+                <ProfileDashboard user={user} />
+            </div>
         </>
     )
 }

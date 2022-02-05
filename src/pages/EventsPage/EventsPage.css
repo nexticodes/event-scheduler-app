@@ -1,0 +1,9 @@
+.user-profile-container {
+    display: flex;
+    margin-top: 5vh;
+    padding: 0px 20px 5vh 20px;
+    align-items: center;
+    justify-content: space-between;
+    height: 30vh;
+    border: 0px 0px 4px 0px solid var(--gray-light); 
+}

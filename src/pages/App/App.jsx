@@ -17,7 +17,7 @@ function App() {
           {/* Routes will go here. */}
           <Route path="/" element={<Splash />} />
           <Route path="/auth" element={<AuthPage setUser={setUser} user={user} />} />
-          { user &&  <Route path="/events" element={<EventsPage />} />}
+          { user &&  <Route path="/events" element={<EventsPage user={user} />} />}
         </Routes>
     </main>
   );
