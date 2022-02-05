@@ -19,6 +19,12 @@ const userSchema = new Schema({
         minLength: 3,
         required: true
     },
+    events : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Event'
+        }
+    ],
 },{
     timestamps: true,
     toJSON: {
