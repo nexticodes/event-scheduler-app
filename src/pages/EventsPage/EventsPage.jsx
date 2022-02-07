@@ -20,7 +20,7 @@ const EventsPage = ({user}) => {
                 <button onClick={() => setModalVisible(true)}>Add Event</button>
                 <button>Search Event</button>
             </div>
-            <EventsList events={events} user={user}/>
+            <EventsList events={events} user={user} setModalVisible={setModalVisible}/>
         </main>
     )
 }
