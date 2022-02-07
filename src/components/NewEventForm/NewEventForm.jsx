@@ -1,35 +1,41 @@
-import { useState } from "react";
-import "./NewEventForm.css";
+import { useState } from 'react';
+import './NewEventForm.css';
 
-const NewEventForm = ({ user }) => {
+const NewEventForm = ({ user, mode }) => {
   const [eventInfo, setEventInfo] = useState({
-    title: "",
-    host: "",
-    eventDate: "",
-    location: "",
+    title: '',
+    host: '',
+    eventDate: '',
+    eventTime: '',
+    location: '',
     coverFee: 0,
     attendees: [],
     active: false,
-    graceP: "",
-    finalWarning: "",
-    channel: "",
+    gracePeriod: '',
+    finalWarning: '',
+    channel: '',
   });
+  const [eventCode, setEventCode] = useState('');
+  const [form, setForm] = useState('');
   const [error, setError] = useState();
 
   const handleChange = (e) => {
-    setEventInfo({ ...eventInfo, [e.target.name]: e.target.value });
-    setError("");
+    form === 'createEvent' && setEventInfo({ ...eventInfo, [e.target.name]: e.target.value });
+    form === 'joinEvent' && setEventCode(e.target.value)
+    setError('');
   };
 
-  return (
-    <>
-      <h1>New Event Form</h1>
-      <form className="new-event-form" autoComplete="off">
-        <label>
+  const handleSubmit = (e) => {
+      e.preventDefault();
+  }
+
+  const createEventForm = 
+  <>
+     <label>
           Title
           <input
-            type="text"
-            name="title"
+            type='text'
+            name='title'
             value={eventInfo.title}
             onChange={handleChange}
             required
@@ -38,9 +44,19 @@ const NewEventForm = ({ user }) => {
         <label>
           Date
           <input
-            type="text"
-            name="password"
+            type='date'
+            name='eventDate'
             value={eventInfo.eventDate}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Time
+          <input
+            type='time'
+            name='eventDate'
+            value={eventInfo.time}
             onChange={handleChange}
             required
           />
@@ -48,8 +64,8 @@ const NewEventForm = ({ user }) => {
         <label>
           Location
           <input
-            type="text"
-            name="location"
+            type='text'
+            name='location'
             value={eventInfo.location}
             onChange={handleChange}
             required
@@ -58,8 +74,8 @@ const NewEventForm = ({ user }) => {
         <label>
           Cover Fee
           <input
-            type="number"
-            name="coverFee"
+            type='number'
+            name='coverFee'
             value={eventInfo.coverFee}
             onChange={handleChange}
             required
@@ -68,8 +84,8 @@ const NewEventForm = ({ user }) => {
         <label>
           Grace Period
           <input
-            type="number"
-            name="gracePeriod"
+            type='number'
+            name='gracePeriod'
             value={eventInfo.gracePeriod}
             onChange={handleChange}
             required
@@ -78,14 +94,40 @@ const NewEventForm = ({ user }) => {
         <label>
           Final Warning
           <input
-            type="number"
-            name="finalWarning"
+            type='number'
+            name='finalWarning'
             value={eventInfo.finalWarning}
             onChange={handleChange}
             required
           />
         </label>
-        <button type="submit">Add Event</button>
+        <button type='submit'>Submit</button>
+        <span className='smaller' onClick={() => setForm('join')}>Join one instead</span>
+  </>
+
+  const joinEventForm = 
+  <>
+    <label>Enter the Event Code Below!</label>
+    <input type='text' name='eventCode' value={eventCode} onChange={handleChange}/>
+    <button type='submit'>Submit</button>
+    <span className='smaller' onClick={() => setForm('create')}>Create one instead</span>
+  </>
+
+  const buttons = 
+    <>
+        <h2>Select an option below:</h2>
+        <button onClick={() => setForm('create')}>Create Event</button>
+        <button onClick={() => setForm('join')}>Join Event</button> 
+    </>
+
+  return (
+    <>
+      <h1>{form === '' ? 'Add' : form === 'create' ? 'Create' : 'Join'} Event</h1>
+      <form 
+        onSubmit={handleSubmit} 
+        className={form === '' ? 'event-form-buttons' : form === 'create' ? 'new-event-form': 'join-event-form'}
+        autoComplete='off'>
+        {form === '' ? buttons : form === 'create' ? createEventForm : joinEventForm}
       </form>
     </>
   );
