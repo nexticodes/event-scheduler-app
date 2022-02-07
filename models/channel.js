@@ -7,7 +7,7 @@ const channelSchema = new Schema({
         ref: 'User'
     }],
     messages: [{
-        type: ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Message'
     }]
 },{
