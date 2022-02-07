@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as eventsAPI from '../../utilities/events-api';
 import './NewEventForm.css';
 
 const NewEventForm = ({ user, mode }) => {
@@ -25,8 +26,10 @@ const NewEventForm = ({ user, mode }) => {
     setError('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
       e.preventDefault();
+      setEventInfo({...eventInfo, active: true});
+      const events = await eventsAPI.createEvent(eventInfo);
   }
 
   const createEventForm = 
@@ -55,8 +58,8 @@ const NewEventForm = ({ user, mode }) => {
           Time
           <input
             type='time'
-            name='eventDate'
-            value={eventInfo.time}
+            name='eventTime'
+            value={eventInfo.eventTime}
             onChange={handleChange}
             required
           />
