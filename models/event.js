@@ -23,6 +23,7 @@ const eventSchema = new Schema({
     host: {type: Schema.Types.ObjectId, ref: 'User'},
     eventDate: {type: Date},
     location: { locationSchema },
+    eventTime:{type: String},
     coverFee: Number,
     attendees: [{
         type: Schema.Types.ObjectId,
