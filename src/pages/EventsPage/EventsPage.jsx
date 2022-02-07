@@ -1,4 +1,5 @@
 import './EventsPage.css';
+import { Link } from 'react-router-dom';
 import ProfileBox from '../../components/ProfileBox/ProfileBox';
 import ProfileDashboard from '../../components/ProfileDashboard/ProfileDashboard';
 import EventsList from '../../components/EventsList/EventsList';
@@ -12,7 +13,7 @@ const EventsPage = ({user}) => {
                 <ProfileDashboard user={user} />
             </div>
             <div className='events-options-container'>
-                <button>Add Event</button>
+                <Link to='/events/add'><button>Add Event</button></Link>
                 <button>Search Event</button>
             </div>
             <EventsList events={events} user={user}/>
