@@ -1,19 +1,17 @@
+import { useState } from 'react';
 import NewEventForm from '../NewEventForm/NewEventForm';
 import './Modal.css';
 
 const Modal = ({setModalVisible}) => {
+    const [choice, setChoice] = useState('');
     return (
         <>
-            <div className='backdrop'>
+            <div onClick={() => setModalVisible(false)} className='backdrop'>
             </div>
             <div className='modal-container'>
-                <h1 id='modal-x' onClick={() => setModalVisible(false)}>X</h1>
-                <div className='modal-header'>
-
-                </div>
+                <h3 id='modal-x' onClick={() => setModalVisible(false)}>X</h3>
                 <div className='modal-body'>
                     <NewEventForm/>
-                    <button onClick={() => setModalVisible(false)}>Close</button>
                 </div>
             </div>
         </>
