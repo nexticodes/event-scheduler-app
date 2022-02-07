@@ -2,8 +2,11 @@
     display: flex;
     flex-flow: column wrap;
     justify-content: space-around;
-    width: 90%;
-    height: 95%;
-    max-height: 60vh;
-    margin: 10px auto;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    height: 56vh;
+    overflow-y: hidden;
+    background-color: var(--lighter-blue);
+    margin: 0 auto;
 }

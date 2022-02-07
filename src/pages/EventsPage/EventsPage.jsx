@@ -12,9 +12,7 @@ const EventsPage = ({user}) => {
                 <ProfileDashboard user={user} />
             </div>
             <hr />
-            <div className="events-wrapper">
-                <EventsList events={events} user={user}/>
-            </div>
+            <EventsList events={events} user={user}/>
         </main>
     )
 }
