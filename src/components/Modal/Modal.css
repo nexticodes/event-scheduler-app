@@ -1,0 +1,26 @@
+.backdrop {
+    display: block;
+    position: absolute;
+    z-index: 49;
+    height: 100%;
+    width: 100%;
+    overflow: none;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-container {
+    background-color: white;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    height: 90%;
+    width: 80%;
+    z-index: 100;
+}
+
+#modal-x{
+    position: absolute;
+    right: 40px;
+    top: 0;
+}
