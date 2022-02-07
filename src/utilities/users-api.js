@@ -14,7 +14,7 @@ export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 }
 
-async function sendRequest(url, method = 'GET', payload){
+export async function sendRequest(url, method = 'GET', payload){
     const options = { method };
     if (payload) {
         options.headers = {'Content-Type': 'application/json'};
