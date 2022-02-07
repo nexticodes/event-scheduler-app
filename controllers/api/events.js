@@ -3,7 +3,8 @@ const User = require('../../models/event')
 const Channel = require('../../models/channel')
 
 module.exports = {
-    create
+    create,
+    getEvents
 }
 
 async function create(req, res){
@@ -14,5 +15,10 @@ async function create(req, res){
         participants: newEvent.attendees,
     })
     const events = await Event.create(newEvent);
+    res.json(events);
+}
+
+async function getEvents(req, res){
+    const events = await User.getEvents(req.user._id);
     res.json(events);
 }
