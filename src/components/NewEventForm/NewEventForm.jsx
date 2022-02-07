@@ -20,8 +20,8 @@ const NewEventForm = ({ user, mode }) => {
   const [error, setError] = useState();
 
   const handleChange = (e) => {
-    form === 'createEvent' && setEventInfo({ ...eventInfo, [e.target.name]: e.target.value });
-    form === 'joinEvent' && setEventCode(e.target.value)
+    form === 'create' && setEventInfo({ ...eventInfo, [e.target.name]: e.target.value });
+    form === 'join' && setEventCode(e.target.value)
     setError('');
   };
 
