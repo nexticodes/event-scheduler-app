@@ -21,16 +21,16 @@ const locationSchema = new Schema({
 const eventSchema = new Schema({
     title: { type: String, required: true, maxlength=50 },
     host: {type: Schema.Types.ObjectId, ref: 'User'},
-    event_date: {type: Date},
+    eventDate: {type: Date},
     location: { locationSchema },
-    total_cost: Number,
+    coverFee: Number,
     attendees: [{
         type: Schema.Types.ObjectId,
         ref: 'User',
     }],
     active: Boolean,
-    grace_period: Date,
-    final_warning: Date,
+    gracePeriod: Date,
+    finalWarning: Date,
     channel: {
         type: Schema.Types.ObjectId,
         ref: 'Channel'
