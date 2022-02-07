@@ -11,7 +11,10 @@ const EventsPage = ({user}) => {
                 <ProfileBox user={user} />
                 <ProfileDashboard user={user} />
             </div>
-            <hr />
+            <div className='events-options-container'>
+                <button>Add Event</button>
+                <button>Search Event</button>
+            </div>
             <EventsList events={events} user={user}/>
         </main>
     )

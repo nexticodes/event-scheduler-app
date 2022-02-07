@@ -10,8 +10,16 @@
     padding: 0px 20px 5vh 20px;
     align-items: center;
     justify-content: space-between;
-    height: 30vh;
+    height: 26vh;
     border: 0px 0px 4px 0px solid var(--gray-light); 
+}
+
+.events-options-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--navy-blue);
+    height: 6vh;
 }
 
 /* .events-wrapper {
