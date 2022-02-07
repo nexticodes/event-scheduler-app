@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const locationSchema = new Schema({
-    address: {type: String, maxlength=100, required: true},
-    city: {type: String, maxlength=100},
-    state: {type: String, maxlength=2},
+    address: {type: String, maxLength: 100, required: true},
+    city: {type: String, maxLength: 100},
+    state: {type: String, maxLength: 2},
     zip: {type: String},
-    longlat: {
+    longLat: {
         long: {
             type: String,
         },
@@ -19,10 +19,10 @@ const locationSchema = new Schema({
 });
 
 const eventSchema = new Schema({
-    title: { type: String, required: true, maxlength=50 },
+    title: { type: String, required: true, maxLength: 50 },
     host: {type: Schema.Types.ObjectId, ref: 'User'},
     eventDate: {type: Date},
-    location: { locationSchema },
+    location: { type: String },
     eventTime:{type: String},
     coverFee: Number,
     attendees: [{
@@ -40,4 +40,8 @@ const eventSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('User', eventSchema);
+eventSchema.virtual('eventExpense').get(function(){
+    return this.attendees.length * coverFee;
+});
+
+module.exports = mongoose.model('Event', eventSchema);
