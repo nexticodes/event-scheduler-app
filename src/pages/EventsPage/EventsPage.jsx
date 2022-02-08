@@ -10,6 +10,7 @@ import * as eventsAPI from '../../utilities/events-api';
 
 const EventsPage = ({user}) => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [modalType, setModalType] = useState('');
     const [events, setEvents] = useState([]);
     const [selectedEvent, setSelectedEvent] = useState({});
 
@@ -21,19 +22,25 @@ const EventsPage = ({user}) => {
         getEvents();
     }, [modalVisible]);
 
+    function handleModal(type, isVisible){
+        setModalType(type);
+        setModalVisible(isVisible);
+    }
+
     return (
         <main className="events-page">
             {modalVisible && 
             <Modal 
+            modalType={modalType}
             setEvents={setEvents}
-            setModalVisible={setModalVisible} 
+            handleModal={handleModal} 
             />}
             <div className="user-profile-container">
                 <ProfileBox user={user} />
                 <ProfileDashboard user={user} />
             </div>
             <div className='events-options-container'>
-                <button onClick={() => setModalVisible(true)}>Add Event</button>
+                <button onClick={() => handleModal('event', true)}>Add Event</button>
                 <button>Search Event</button>
             </div>
             <EventsList events={events} user={user}/>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as eventsAPI from '../../utilities/events-api';
 import './NewEventForm.css';
 
-const NewEventForm = ({ user, mode, setModalVisible }) => {
+const NewEventForm = ({ mode, handleModal }) => {
   const [eventInfo, setEventInfo] = useState({
     title: '',
     alias: '',
@@ -174,7 +174,7 @@ const NewEventForm = ({ user, mode, setModalVisible }) => {
           <div className='event-code-container'>
             <h2>Copy the Event code below and share it to your friends!</h2>
             <span className='after-holder'><input type='text' value={eventCode} onClick={() => {navigator.clipboard.writeText(eventCode)}}/></span>
-            <button onClick={() => setModalVisible(false)} > Done! </button>
+            <button onClick={() => handleModal('',false)} > Done! </button>
           </div>
        </>
       }
