@@ -24,8 +24,20 @@
     padding-top: 20px;
 }
 
-.event-details h5 {
-    margin: 2px auto;
+.event-details h4 {
+    margin: 4px auto;
+}
+
+.event-details h5:last-child {
+    margin-bottom: 0px;
+}
+
+.event-details span {
+    font-size: x-small;
+}
+
+.event-details p {
+    margin-top: 5px;
 }
 
 .event-active { 

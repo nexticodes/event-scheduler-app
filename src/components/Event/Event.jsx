@@ -9,12 +9,11 @@ const Event = ({event}) => {
                     <h1>{alias}</h1>
                 </div>
                 <div className='event-details'>
-                    <span>Where:</span>
-                    <h5>{location}</h5>
-                    <span>Date:</span>
-                    <h5 >{new Date(eventDate).toLocaleDateString()}</h5>
+                    <h4>{location}</h4>
+                    <span className='smaller'>WHERE</span>
+                    <h4 >{new Date(eventDate).toLocaleDateString()}</h4>
+                    <span className='smaller'>DATE</span>
                     <p>{attendees.length} <span style={{fontWeight: 200}}>attendee{attendees.length > 1 && 's'}</span></p>
-                    
                 </div>
                 <div className='event-active'>
                     <p className={`event-active-indicator ${active ? 'on' : 'off'}`}></p>
