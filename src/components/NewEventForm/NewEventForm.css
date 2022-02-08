@@ -19,11 +19,19 @@
 }
 
 .new-event-form input[type="number"]{
-    width: 30%;
+    width: 20%;
+}
+
+.new-event-form input[name="coverFee"]::before{
+    content: "$";
 }
 
 .new-event-form input[name="title"], input[name="location"], input[name="date"] {
     width: 60%;
+}
+
+.new-event-form input[name="alias"] {
+    width: 20%;
 }
 
 .event-form-buttons, .join-event-form {

@@ -10,6 +10,7 @@ module.exports = {
 async function create(req, res){
     const newEvent = req.body;
     newEvent.host = req.user._id;
+    newEvent.active = true;
     newEvent.attendees.push(req.user._id);
     newEvent.channel = await Channel.create({
         participants: newEvent.attendees,

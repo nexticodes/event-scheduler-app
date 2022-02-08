@@ -13,15 +13,20 @@ const EventsPage = ({user}) => {
     const [events, setEvents] = useState([]);
 
     useEffect(function() {
-        (async function getEvents() {
+        async function getEvents() {
             const allEvents = await eventsAPI.getEvents();
             setEvents(allEvents);
-        })();
-    }, []);
+        }
+        getEvents();
+    }, [modalVisible]);
 
     return (
         <main className="events-page">
-            {modalVisible && <Modal user={user} setModalVisible={setModalVisible} />}
+            {modalVisible && 
+            <Modal 
+            setEvents={setEvents}
+            setModalVisible={setModalVisible} 
+            />}
             <div className="user-profile-container">
                 <ProfileBox user={user} />
                 <ProfileDashboard user={user} />
@@ -30,7 +35,7 @@ const EventsPage = ({user}) => {
                 <button onClick={() => setModalVisible(true)}>Add Event</button>
                 <button>Search Event</button>
             </div>
-            <EventsList events={events} user={user} setModalVisible={setModalVisible}/>
+            <EventsList events={events} user={user}/>
         </main>
     )
 }

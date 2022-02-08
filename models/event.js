@@ -21,6 +21,7 @@ const locationSchema = new Schema({
 const eventSchema = new Schema({
     title: { type: String, required: true, maxLength: 50 },
     host: {type: Schema.Types.ObjectId, ref: 'User'},
+    alias: {type: String},
     eventDate: {type: Date},
     location: { type: String },
     eventTime:{type: String},
@@ -30,8 +31,8 @@ const eventSchema = new Schema({
         ref: 'User',
     }],
     active: Boolean,
-    gracePeriod: Date,
-    finalWarning: Date,
+    gracePeriod: Number,
+    finalWarning: Number,
     channel: {
         type: Schema.Types.ObjectId,
         ref: 'Channel'

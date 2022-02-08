@@ -2,9 +2,10 @@ import { useState } from 'react';
 import * as eventsAPI from '../../utilities/events-api';
 import './NewEventForm.css';
 
-const NewEventForm = ({ user, mode }) => {
+const NewEventForm = ({ user, mode, setModalVisible }) => {
   const [eventInfo, setEventInfo] = useState({
     title: '',
+    alias: '',
     eventDate: '',
     eventTime: '',
     location: '',
@@ -28,10 +29,24 @@ const NewEventForm = ({ user, mode }) => {
   const handleSubmit = async (e) => {
       e.preventDefault();
       if (form === 'create'){
-        setEventInfo({...eventInfo, active: true});
+        setEventInfo({...eventInfo});
         const events = await eventsAPI.createEvent(eventInfo);
-      }
-  }
+        setEventInfo({
+          title: '',
+          alias: '',
+          eventDate: '',
+          eventTime: '',
+          location: '',
+          coverFee: 0,
+          attendees: [],
+          active: false,
+          gracePeriod: 0,
+          finalWarning: 0,
+          channel: '',
+        });
+        setModalVisible(false);
+      };
+  };
 
   function calculateDate(operation, numDays) {
     let eventDate = new Date(eventInfo.eventDate);
@@ -48,6 +63,16 @@ const NewEventForm = ({ user, mode }) => {
             type='text'
             name='title'
             value={eventInfo.title}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Alias<input
+            type='text'
+            name='alias'
+            maxLength={3}
+            value={eventInfo.alias.toUpperCase()}
             onChange={handleChange}
             required
           />
