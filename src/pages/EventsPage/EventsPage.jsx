@@ -31,6 +31,7 @@ const EventsPage = ({user}) => {
         <main className="events-page">
             {modalVisible && 
             <Modal 
+            selectedEvent={selectedEvent}
             modalType={modalType}
             setEvents={setEvents}
             handleModal={handleModal} 
@@ -43,7 +44,11 @@ const EventsPage = ({user}) => {
                 <button onClick={() => handleModal('event', true)}>Add Event</button>
                 <button>Search Event</button>
             </div>
-            <EventsList setSelectedEvent={setSelectedEvent} events={events} user={user}/>
+            <EventsList 
+            handleModal={handleModal} 
+            setSelectedEvent={setSelectedEvent}
+            events={events}
+            user={user}/>
         </main>
     )
 }

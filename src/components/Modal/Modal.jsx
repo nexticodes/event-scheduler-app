@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import NewEventForm from '../NewEventForm/NewEventForm';
+import EventDetails from '../EventDetails/EventDetails';
 import './Modal.css';
 
-const Modal = ({modalType, handleModal, setEvents}) => {
-    const [choice, setChoice] = useState('');
+const Modal = ({selectedEvent, modalType, handleModal, setEvents}) => {
     return (
         <>
             <div onClick={() => handleModal('',false)} className='backdrop'>
@@ -11,7 +10,8 @@ const Modal = ({modalType, handleModal, setEvents}) => {
             <div className='modal-container'>
                 <h3 id='modal-x' onClick={() => handleModal('',false)}>X</h3>
                 <div className='modal-body'>
-                    <NewEventForm setEvents={setEvents} handleModal={handleModal} />
+                    {modalType === 'event' && <NewEventForm setEvents={setEvents} handleModal={handleModal} />}
+                    {modalType === 'detail' && <EventDetails selectedEvent={selectedEvent} />}
                 </div>
             </div>
         </>
