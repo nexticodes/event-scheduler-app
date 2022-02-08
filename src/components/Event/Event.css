@@ -4,10 +4,6 @@
     background-color: white;
 }
 
-.event-filler {
-    justify-content: center;
-    border: 2px dotted var(--gray-dark)
-}
 
 .event {
     display: flex;
@@ -20,11 +16,16 @@
 }
 
 
-.event-filler button {
-    display: relative;
-    height: 75px;
-    width: 75px;
-    border-radius: 50%;
+.event-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 10vh;
+    padding-top: 20px;
+}
+
+.event-details h5 {
+    margin: 2px auto;
 }
 
 .event-active { 
@@ -37,10 +38,22 @@
     width: 20px;
     border: 1px solid var(--gray-dark);
     margin: 0 auto;
-    margin-top: 3vh;
     border-radius: 50%;
 }
 
 .on {
     background-color: #2edf60
+}
+
+.event-active .smaller {
+    margin: 5px auto 0px;
+}
+
+.smaller.active {
+    color: black;
+    font-weight: bold;
+}
+
+.smaller.inactive {
+    color: var(--gray-light)
 }

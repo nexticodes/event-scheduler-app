@@ -34,7 +34,7 @@
     width: 20%;
 }
 
-.event-form-buttons, .join-event-form {
+.event-form-buttons, .join-event-form, .event-code-container {
     background: var(--gray-lightest);
     padding: 15px;
     border: 1px solid lightslategray;
@@ -43,6 +43,30 @@
     height: 40vh;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.event-code-container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.event-code-container input { 
+    height: 3rem;
+    width: 14rem;
+    text-align: center;
+    font-size: 1rem;    
+}
+
+.after-holder:focus-within::after {
+    content: 'COPIED!';
+}
+
+.after-holder input:focus {
+    border: 2px solid green;
+}
+
+.after-holder {
+    height: 60px;
 }
 
 .event-form-buttons button, .join-event-form button, .new-event-form button{

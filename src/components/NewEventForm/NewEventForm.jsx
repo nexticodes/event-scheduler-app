@@ -17,6 +17,7 @@ const NewEventForm = ({ user, mode, setModalVisible }) => {
     channel: '',
   });
   const [eventCode, setEventCode] = useState('');
+  const [showEventCode, setShowEventCode] = useState(false);
   const [form, setForm] = useState('');
   const [error, setError] = useState();
 
@@ -30,7 +31,8 @@ const NewEventForm = ({ user, mode, setModalVisible }) => {
       e.preventDefault();
       if (form === 'create'){
         setEventInfo({...eventInfo});
-        const events = await eventsAPI.createEvent(eventInfo);
+        const event = await eventsAPI.createEvent(eventInfo);
+        setEventCode(event._id);
         setEventInfo({
           title: '',
           alias: '',
@@ -42,15 +44,13 @@ const NewEventForm = ({ user, mode, setModalVisible }) => {
           active: false,
           gracePeriod: 0,
           finalWarning: 0,
-          channel: '',
         });
-        setModalVisible(false);
+        setShowEventCode(true);
       };
   };
 
   function calculateDate(operation, numDays) {
     let eventDate = new Date(eventInfo.eventDate);
-    console.log(eventDate);
     if (operation === 'minus') return eventDate.setDate(eventDate.getDate() - numDays)
     if (operation === 'add') return new Date(Date.now()).setDate(eventDate.getDate() + numDays);
   }
@@ -158,13 +158,26 @@ const NewEventForm = ({ user, mode, setModalVisible }) => {
 
   return (
     <>
-      <h1>{form === '' ? 'Add' : form === 'create' ? 'Create' : 'Join'} Event</h1>
-      <form 
-        onSubmit={handleSubmit} 
-        className={form === '' ? 'event-form-buttons' : form === 'create' ? 'new-event-form': 'join-event-form'}
-        autoComplete='off'>
-        {form === '' ? buttons : form === 'create' ? createEventForm : joinEventForm}
-      </form>
+      {!showEventCode ? 
+          <>
+            <h1>{form === '' ? 'Add' : form === 'create' ? 'Create' : 'Join'} Event</h1>
+            <form 
+              onSubmit={handleSubmit} 
+              className={form === '' ? 'event-form-buttons' : form === 'create' ? 'new-event-form': 'join-event-form'}
+              autoComplete='off'>
+              {form === '' ? buttons : form === 'create' ? createEventForm : joinEventForm}
+            </form>
+          </>
+       : 
+       <>
+          <h1>Event Created Successfully!</h1>
+          <div className='event-code-container'>
+            <h2>Copy the Event code below and share it to your friends!</h2>
+            <span className='after-holder'><input type='text' value={eventCode} onClick={() => {navigator.clipboard.writeText(eventCode)}}/></span>
+            <button onClick={() => setModalVisible(false)} > Done! </button>
+          </div>
+       </>
+      }
     </>
   );
 };
