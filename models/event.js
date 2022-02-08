@@ -44,8 +44,9 @@ eventSchema.virtual('eventExpense').get(function(){
     return this.attendees.length * coverFee;
 });
 
+
 eventSchema.statics.getEvents = function(userId) {
     return this.find({user: userId})
-}
+};
 
 module.exports = mongoose.model('Event', eventSchema);

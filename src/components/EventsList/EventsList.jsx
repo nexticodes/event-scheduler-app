@@ -5,7 +5,12 @@ const EventsList = ({events}) => {
     return (
         <>
             <div className='events-list-container'>
-                {events.map((e, i) => <Event event={e} key={i}/>)}
+                { events.length > 0 ? events.map((e, i) => <Event event={e} key={i}/>) : 
+                <>
+                    <h1 className='no-events-alert'>
+                        You don't have any events registered yet!
+                    </h1>
+                </>}
             </div>
         </>
     )

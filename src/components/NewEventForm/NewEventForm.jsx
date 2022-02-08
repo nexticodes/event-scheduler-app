@@ -5,15 +5,14 @@ import './NewEventForm.css';
 const NewEventForm = ({ user, mode }) => {
   const [eventInfo, setEventInfo] = useState({
     title: '',
-    host: '',
     eventDate: '',
     eventTime: '',
     location: '',
     coverFee: 0,
     attendees: [],
     active: false,
-    gracePeriod: '',
-    finalWarning: '',
+    gracePeriod: 0,
+    finalWarning: 0,
     channel: '',
   });
   const [eventCode, setEventCode] = useState('');
@@ -28,8 +27,17 @@ const NewEventForm = ({ user, mode }) => {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
-      setEventInfo({...eventInfo, active: true});
-      const events = await eventsAPI.createEvent(eventInfo);
+      if (form === 'create'){
+        setEventInfo({...eventInfo, active: true});
+        const events = await eventsAPI.createEvent(eventInfo);
+      }
+  }
+
+  function calculateDate(operation, numDays) {
+    let eventDate = new Date(eventInfo.eventDate);
+    console.log(eventDate);
+    if (operation === 'minus') return eventDate.setDate(eventDate.getDate() - numDays)
+    if (operation === 'add') return new Date(Date.now()).setDate(eventDate.getDate() + numDays);
   }
 
   const createEventForm = 

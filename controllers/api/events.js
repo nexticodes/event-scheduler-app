@@ -22,3 +22,4 @@ async function getEvents(req, res){
     const events = await User.getEvents(req.user._id);
     res.json(events);
 }
+
