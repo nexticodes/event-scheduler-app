@@ -43,7 +43,7 @@ const EventsPage = ({user}) => {
                 <button onClick={() => handleModal('event', true)}>Add Event</button>
                 <button>Search Event</button>
             </div>
-            <EventsList events={events} user={user}/>
+            <EventsList setSelectedEvent={setSelectedEvent} events={events} user={user}/>
         </main>
     )
 }

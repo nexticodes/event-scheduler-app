@@ -1,10 +1,10 @@
 import './Event.css';
 
-const Event = ({event}) => {
+const Event = ({event, setSelectedEvent}) => {
     const {alias, eventDate, attendees, location, active} = event;
     return (
         <>          
-            <div className='event event-container'>
+            <div className='event event-container' onClick={() => setSelectedEvent(event)}>
                 <div className='event-alias-container'>
                     <h1>{alias}</h1>
                 </div>
