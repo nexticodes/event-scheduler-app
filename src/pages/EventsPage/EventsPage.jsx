@@ -27,7 +27,8 @@ const EventsPage = ({user}) => {
     }
 
     async function handleDelete(){
-        console.log('lol');
+        await eventsAPI.deleteEvent(selectedEvent);
+        handleModal('', false);
     }
 
     function handleModal(type, isVisible){
