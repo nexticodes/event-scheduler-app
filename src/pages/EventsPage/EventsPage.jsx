@@ -22,6 +22,10 @@ const EventsPage = ({user}) => {
         getEvents();
     }, [modalVisible]);
 
+    async function handleUpdateSave(updatedEvent){
+        await eventsAPI.updateEvent(updatedEvent);
+    }
+
     function handleModal(type, isVisible){
         setModalType(type);
         setModalVisible(isVisible);
@@ -31,6 +35,7 @@ const EventsPage = ({user}) => {
         <main className="events-page">
             {modalVisible && 
             <Modal 
+            handleUpdateSave={handleUpdateSave}
             selectedEvent={selectedEvent}
             modalType={modalType}
             setEvents={setEvents}
