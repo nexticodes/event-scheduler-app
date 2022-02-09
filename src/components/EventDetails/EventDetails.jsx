@@ -2,7 +2,7 @@ import './EventDetails.css';
 import { useState } from 'react';
 import DeleteButton from '../DeleteButton/DeleteButton';
 
-const EventDetails = ({selectedEvent, handleUpdateSave}) => {
+const EventDetails = ({selectedEvent, handleUpdateSave, handleDelete}) => {
 
     const [updatedEvent, setUpdatedEvent] = useState({
         ...selectedEvent
@@ -37,7 +37,6 @@ const EventDetails = ({selectedEvent, handleUpdateSave}) => {
             handleUpdateSave(updatedEvent);
             setUpdateSuccess(true);
         } 
-
     }
 
     const formatDate = (date) => {
@@ -93,7 +92,7 @@ const EventDetails = ({selectedEvent, handleUpdateSave}) => {
                 </div>
             <p className={`update-success ${updateSuccess && 'show'}`}>Event Updated!</p>
             </form>
-            {isUpdating && <DeleteButton />}
+            {isUpdating && <DeleteButton handleDelete={handleDelete} />}
             {isUpdating ? <button onClick={handleSave}>SAVE</button> : <button onClick={() => setIsUpdating(true) && setUpdateSuccess(false)}>EDIT</button>}
         </div>
     )   

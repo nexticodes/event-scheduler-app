@@ -26,6 +26,10 @@ const EventsPage = ({user}) => {
         await eventsAPI.updateEvent(updatedEvent);
     }
 
+    async function handleDelete(){
+        console.log('lol');
+    }
+
     function handleModal(type, isVisible){
         setModalType(type);
         setModalVisible(isVisible);
@@ -36,6 +40,7 @@ const EventsPage = ({user}) => {
             {modalVisible && 
             <Modal 
             handleUpdateSave={handleUpdateSave}
+            handleDelete={handleDelete}
             selectedEvent={selectedEvent}
             modalType={modalType}
             setEvents={setEvents}

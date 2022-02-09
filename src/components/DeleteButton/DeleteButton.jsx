@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './DeleteButton.css';
 
-const DeleteButton = () => {
+const DeleteButton = ({handleDelete}) => {
     const [showConfirmation,setShowConfirmation] = useState(false);
     return (
         <>
@@ -12,7 +12,7 @@ const DeleteButton = () => {
                 <>
                 <button className='confirmation-button' onClick={() => setShowConfirmation(false)}>NO</button>
                 <p>SURE?</p>
-                <button className='confirmation-button'>YES</button>
+                <button onClick={handleDelete} className='confirmation-button'>YES</button>
             </>
             }
             </div>
