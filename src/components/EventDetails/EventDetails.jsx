@@ -1,26 +1,14 @@
 import './EventDetails.css';
 import { useState } from 'react';
 
-const EventDetails = ({selectedEvent}) => {
-    const {
-        _id,
-        title,
-        host,
-        alias,
-        eventDate,
-        eventTime,
-        location,
-        coverFee,
-        attendees,
-        gracePeriod,
-        finalWarning,
-        active,
-    } = selectedEvent;
+const EventDetails = ({selectedEvent, handleUpdateSave}) => {
+
     const [updatedEvent, setUpdatedEvent] = useState({
         ...selectedEvent
     })
     const [chkbx, setChkbx] = useState(selectedEvent['active'])
     const [isUpdating, setIsUpdating] = useState(false);
+    const [updateSuccess, setUpdateSuccess] = useState(false);
     const handleChange = (e) => {
         if (e.target.name === 'active'){ 
             setChkbx(!chkbx);
@@ -29,6 +17,28 @@ const EventDetails = ({selectedEvent}) => {
         }
         setUpdatedEvent({...updatedEvent, [e.target.name]: e.target.value});
     }
+    
+    const checkDifference = () => {
+        let isDifferent = false;
+        for (const [key,val] of Object.entries(selectedEvent)){
+            if (val !== updatedEvent[key]){
+                isDifferent = true;
+                break;
+            }
+        }
+        return isDifferent;
+    }
+
+    const handleSave = async () => {
+        setIsUpdating(false);
+        // check to see if there are any differences between updatedEvent, and setUpdatedEvent;
+        if (checkDifference()){
+            handleUpdateSave(updatedEvent);
+            setUpdateSuccess(true);
+        } 
+
+    }
+
     const formatDate = (date) => {
         let dateArray = date.toLocaleDateString().split(/\D/).slice(0,3).map(num=>num.padStart(2,"0"));
 
@@ -80,8 +90,9 @@ const EventDetails = ({selectedEvent}) => {
                         type='checkbox' name='active' checked={chkbx} onChange={handleChange}/>
                     </div>
                 </div>
+            <p className={`update-success ${updateSuccess && 'show'}`}>Event Updated!</p>
             </form>
-            {isUpdating ? <button onClick={() => setIsUpdating(false)}>SAVE</button> : <button onClick={() => setIsUpdating(true)}>EDIT</button>}
+            {isUpdating ? <button onClick={handleSave}>SAVE</button> : <button onClick={() => setIsUpdating(true) && setUpdateSuccess(false)}>EDIT</button>}
         </div>
     )   
 }
