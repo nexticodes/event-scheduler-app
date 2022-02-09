@@ -10,4 +10,7 @@ router.get('/', eventsCtrl.getEvents);
 
 router.put('/update', eventsCtrl.updateEvent);
 
+// DELETE an event
+router.delete('/delete', eventsCtrl.deleteEvent);
+
 module.exports = router;

@@ -5,7 +5,8 @@ const Channel = require('../../models/channel')
 module.exports = {
     create,
     getEvents,
-    updateEvent
+    updateEvent,
+    deleteEvent
 }
 
 async function create(req, res){
@@ -28,5 +29,10 @@ async function getEvents(req, res){
 async function updateEvent(req, res){
     const event = await Event.findById(req.body._id);
     await event.updateEvent(req.body);
+    res.json(event);
+}
+
+async function deleteEvent(req, res) {
+    const event = await Event.findByIdAndDelete(req.body._id);
     res.json(event);
 }
