@@ -21,7 +21,7 @@ const Event = ({handleModal, event, setSelectedEvent}) => {
                 </div>
                 <div className='event-active'>
                     <p className={`event-active-indicator ${active ? 'on' : 'off'}`}></p>
-                    <p className={`smaller ${active ? 'active' : 'inactive'}`}>ACTIVE</p>
+                    <p className={`smaller ${active ? 'active' : 'inactive'}`}>{ active ? 'ACTIVE' : 'INACTIVE'}</p>
                 </div>
             </div>
         </>
