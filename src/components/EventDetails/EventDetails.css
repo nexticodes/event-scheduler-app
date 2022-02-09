@@ -62,20 +62,24 @@ textarea:disabled {
     justify-content: space-around;
     background-color: white;
     border: 1px solid black;
-    height: 15vh;
+    padding: 10px;
 }
 
 
 .bottom-numbers input {
     text-align: center;
+    height: 5vh;
+    width: 40px;
+    font-size: 24px;
 }
+
 .event-details-form .location {
     height: 5vh;
     margin: 4vh auto;
 }
 
 .event-details-form input[type='number'] {
-    width: 30%;
+    width: 50%;
 }
 
 div.alias {
@@ -104,6 +108,12 @@ div.alias {
 .event-details-form input[type="date"]::-webkit-calendar-picker-indicator, .event-details-form input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
+}
+
+.event-details-form input[type="number"]::-webkit-outer-spin-button,
+.event-details-form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .event-details-container button {
