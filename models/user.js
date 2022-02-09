@@ -25,6 +25,14 @@ const userSchema = new Schema({
             ref: 'Event'
         }
     ],
+    numFlakesLifetime: {
+        type: Number,
+        default: 0,
+    },
+    numEventsLifetime: {
+        type: Number,
+        default: 0
+    }
 },{
     timestamps: true,
     toJSON: {
