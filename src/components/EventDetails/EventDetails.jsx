@@ -44,7 +44,7 @@ const EventDetails = ({selectedEvent}) => {
             <form className='event-details-form'>
                 <div className='top'>
                         <div className='deets'>
-                                <input maxLength={3} disabled={!isUpdating} className='alias' name='alias' value={updatedEvent['alias']} onChange={handleChange}/>
+                                <input maxLength={3} disabled={!isUpdating} className='alias' name='alias' value={updatedEvent['alias'].toUpperCase()} onChange={handleChange}/>
                         </div>
 
                         <div className='datetime'>
@@ -58,16 +58,16 @@ const EventDetails = ({selectedEvent}) => {
                 </div>
                 <div className='bottom'>
                     <div className='bottom-numbers'>
-                        <label>
+                        <span>
                             <input disabled={!isUpdating} type='number' className='coverFee' name='coverFee' value={updatedEvent['coverFee']} onChange={handleChange}/>
 
-                        </label>
-                        <label>
+                        </span>
+                        <span>
                             <input disabled={!isUpdating} type='number' className='gracePeriod' name='gracePeriod' value={updatedEvent['gracePeriod']} onChange={handleChange}/>
-                        </label>
-                        <label>
+                        </span>
+                        <span>
                             <input disabled={!isUpdating} type='number' className='finalWarning' name='finalWarning' value={updatedEvent['finalWarning']} onChange={handleChange}/>
-                        </label>
+                        </span>
                         
                     </div>
                     <div className='bottom-active'>

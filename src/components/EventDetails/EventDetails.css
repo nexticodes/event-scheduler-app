@@ -24,13 +24,17 @@ textarea:disabled {
     background-color: inherit;
 }
 
-.event-details-form input{
-    background-color: none;
-    border: 1px solid yellow;
+.event-details-form input,
+.event-details-form .top .deets > .alias,
+.event-details-header textarea {
+    background-color: whitesmoke;
+    border: 1px solid rgba(35, 105, 211, 0.872);
     text-align: center;
 }
 
-.event-details-form input:disabled {
+.event-details-form input:disabled,
+.event-details-form .top .deets > .alias:disabled,
+.event-details-header textarea:disabled {
     border: 0;
     background-color: inherit;
 }
@@ -60,8 +64,8 @@ textarea:disabled {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: white;
     border: 1px solid black;
+    border-radius: 10px;
     padding: 10px;
 }
 
@@ -72,6 +76,7 @@ textarea:disabled {
     width: 40px;
     font-size: 24px;
 }
+
 
 .event-details-form .location {
     height: 5vh;
@@ -102,6 +107,23 @@ div.alias {
 .event-details-form input[name='eventDate'] {
     width: 60%;
     font-size: 20px;
+}
+
+.bottom-active {
+    margin-top: 20px;
+    background-color: var(--gray-dark);
+    color: white;
+    font-size: 16px;
+    display: flex;
+    width: 60%;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bottom-active input {
+    height: 16px;
+    width: 16px;
 }
 
 .event-details-form input[type="date"]::-webkit-inner-spin-button,
