@@ -13,3 +13,7 @@ export function getEvents() {
 export function updateEvent(updatedEventDetails) {
     return sendRequest(`${BASE_URL}/update`, 'PUT', updatedEventDetails);
 }
+
+export function deleteEvent(selectedEvent) {
+    return sendRequest(`${BASE_URL}/delete`, 'DELETE', selectedEvent);
+}
