@@ -4,7 +4,8 @@ const Channel = require('../../models/channel')
 
 module.exports = {
     create,
-    getEvents
+    getEvents,
+    updateEvent
 }
 
 async function create(req, res){
@@ -24,3 +25,8 @@ async function getEvents(req, res){
     res.json(events);
 }
 
+async function updateEvent(req, res){
+    const event = await Event.findById(req.body._id);
+    await event.updateEvent(req.body);
+    res.json(event);
+}

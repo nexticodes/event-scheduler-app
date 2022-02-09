@@ -8,4 +8,6 @@ router.post('/', eventsCtrl.create);
 // GET /api/events
 router.get('/', eventsCtrl.getEvents);
 
+router.put('/update', eventsCtrl.updateEvent);
+
 module.exports = router;

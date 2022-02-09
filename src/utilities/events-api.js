@@ -9,3 +9,7 @@ export function createEvent(eventDetails){
 export function getEvents() {
     return sendRequest(BASE_URL);
 }
+
+export function updateEvent(updatedEventDetails) {
+    return sendRequest(`${BASE_URL}/update`, 'PUT', updatedEventDetails);
+}
