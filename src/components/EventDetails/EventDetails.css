@@ -1,9 +1,13 @@
+.event-details-container {
+    padding: 5vh 0px 5vh 0px;
+    height: 100%;
+}
+
 .event-details-form {
     display: flex;
     background-color: var(--gray-lightest);
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2vh;
     padding: 3vh 2vw;
 }
 
@@ -17,6 +21,7 @@
     text-align: center;
     font-size: 30px;
     width: 60vw;
+    height: 5vh;
 }
 
 textarea:disabled {
@@ -41,8 +46,9 @@ textarea:disabled {
 
 .event-details-form .top {
     display: flex;
-    width: 60vw;
+    width: 90%;
     margin: 0 auto;
+    text-align: center;
     align-items: center;
     justify-content: space-around;
 }
@@ -58,6 +64,9 @@ textarea:disabled {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid black;
+    margin-top: 35px;
+    padding: 20px;
 }
 
 .bottom-numbers {
@@ -105,7 +114,7 @@ div.alias {
 }
 
 .event-details-form input[name='eventDate'] {
-    width: 60%;
+    width: 100%;
     font-size: 20px;
 }
 

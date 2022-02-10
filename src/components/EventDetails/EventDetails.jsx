@@ -3,7 +3,7 @@ import { useState } from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import ParticipantsList from "../ParticipantsList/ParticipantsList";
 
-const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete }) => {
+const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete, setSelectedEvent }) => {
   const [updatedEvent, setUpdatedEvent] = useState({
     ...selectedEvent,
   });
@@ -162,6 +162,7 @@ const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete }) => {
           EDIT
         </button>
       )}
+      <p onClick={() => setSelectedEvent([])}>GO BACK TO EVENTS LIST</p>
     </div>
   );
 };

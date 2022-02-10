@@ -39,8 +39,8 @@ const EventsPage = ({ user }) => {
     setModalVisible(isVisible);
   }
 
-  function handleSelect(eventId){
-      setSelectedEvent(events.filter(e => e._id === eventId)[0]);
+  function handleSelect(eventId) {
+    setSelectedEvent(events.filter((e) => e._id === eventId)[0]);
   }
 
   return (
@@ -52,7 +52,7 @@ const EventsPage = ({ user }) => {
           handleModal={handleModal}
         />
       )}
-      {!selectedEvent ? (
+      {selectedEvent.length == 0 ? (
         <>
           <div className="user-profile-container">
             <ProfileBox user={user} />
@@ -73,6 +73,7 @@ const EventsPage = ({ user }) => {
         </>
       ) : (
         <EventDetails
+          setSelectedEvent={setSelectedEvent}
           selectedEvent={selectedEvent}
           handleDelete={handleDelete}
           handleUpdateSave={handleUpdateSave}
