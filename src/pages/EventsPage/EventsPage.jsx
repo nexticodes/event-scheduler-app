@@ -34,6 +34,11 @@ const EventsPage = ({ user }) => {
     handleModal("", false);
   }
 
+	async function handleJoinEvent() { 
+		const updatedEvent = await eventsAPI.joinEvent(selectedEvent._id, user._id);
+		setSelectedEvent(updatedEvent);
+	}
+
   function handleModal(type, isVisible) {
     setModalType(type);
     setModalVisible(isVisible);
@@ -75,6 +80,7 @@ const EventsPage = ({ user }) => {
       ) : (
         <EventDetails
 					user={user}
+					handleJoinEvent={handleJoinEvent}
 					setSelectedEvent={setSelectedEvent}
           selectedEvent={selectedEvent}
           handleDelete={handleDelete}
