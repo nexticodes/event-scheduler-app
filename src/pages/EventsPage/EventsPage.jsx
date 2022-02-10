@@ -17,7 +17,7 @@ const EventsPage = ({ user }) => {
   useEffect(
     function () {
       async function getEvents() {
-        const allEvents = await eventsAPI.getEvents();
+        const allEvents = await eventsAPI.getUserEvents();
         setEvents(allEvents);
       }
       getEvents();
