@@ -74,7 +74,8 @@ const EventsPage = ({ user }) => {
         </>
       ) : (
         <EventDetails
-          setSelectedEvent={setSelectedEvent}
+					user={user}
+					setSelectedEvent={setSelectedEvent}
           selectedEvent={selectedEvent}
           handleDelete={handleDelete}
           handleUpdateSave={handleUpdateSave}

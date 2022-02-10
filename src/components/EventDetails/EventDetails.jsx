@@ -3,7 +3,13 @@ import { useState } from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import ParticipantsList from "../ParticipantsList/ParticipantsList";
 
-const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete, setSelectedEvent }) => {
+const EventDetails = ({
+  selectedEvent,
+  handleUpdateSave,
+  handleDelete,
+  setSelectedEvent,
+  user,
+}) => {
   const [updatedEvent, setUpdatedEvent] = useState({
     ...selectedEvent,
   });
@@ -30,6 +36,16 @@ const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete, setSelect
     return isDifferent;
   };
 
+  const isUserInEvent = () => {
+    return (
+      selectedEvent.attendees.includes(user._id)
+    );
+  };
+
+  const isUserHost = () => {
+    return selectedEvent.host._id === user._id;
+  }
+
   const handleSave = async () => {
     setIsUpdating(false);
     // check to see if there are any differences between updatedEvent, and setUpdatedEvent;
@@ -53,6 +69,7 @@ const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete, setSelect
     <div className="event-details-container">
       <div className="event-details-header">
         {isUpdating ? "Updating" : "Viewing"}
+        {isUserInEvent() ? "welcome back" : "what"}
         <textarea
           disabled={!isUpdating}
           className="event-title"
@@ -94,7 +111,18 @@ const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete, setSelect
             />
           </div>
         </div>
-        <span className='after-holder'><button type='text' onClick={() => {navigator.clipboard.writeText(updatedEvent['_id'])}}>CLICK TO COPY EVENT CODE</button></span>
+        {isUserInEvent() && (
+          <span className="after-holder">
+            <button
+              type="text"
+              onClick={() => {
+                navigator.clipboard.writeText(updatedEvent["_id"]);
+              }}
+            >
+              CLICK TO COPY EVENT CODE
+            </button>
+          </span>
+        )}
         <div className="middle">
           <ParticipantsList />
           <div className="location-map-container">
@@ -155,14 +183,25 @@ const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete, setSelect
           Event Updated!
         </p>
       </form>
-      {isUpdating && <DeleteButton handleDelete={handleDelete} />}
-      {isUpdating ? (
-        <button onClick={handleSave}>SAVE</button>
-      ) : (
-        <button onClick={() => setIsUpdating(true) && setUpdateSuccess(false)}>
-          EDIT
-        </button>
-      )}
+      {isUserInEvent() ? (
+        <>
+          {isUpdating ? (
+            <>
+              <DeleteButton handleDelete={handleDelete} />
+              <button onClick={handleSave}>SAVE</button>
+            </>
+          ) : (
+            <button
+              onClick={() => setIsUpdating(true) && setUpdateSuccess(false)}
+            >
+              EDIT
+            </button>
+          )}
+          {!isUserHost() && <button>LEAVE EVENT</button>}
+        </>
+      ) : 
+            <button>JOIN EVENT</button>
+      }
       <p onClick={() => setSelectedEvent([])}>GO BACK TO EVENTS LIST</p>
     </div>
   );

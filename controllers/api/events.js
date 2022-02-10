@@ -44,7 +44,7 @@ async function deleteEvent(req, res) {
 
 
 async function findEvent(req, res) {
-    const event = await Event.findById(req.params.code)
     console.log(req.params);
+    const event = await Event.findById(req.params.code)
     if (event) res.json(event);
 }
