@@ -16,4 +16,7 @@ router.delete('/delete', eventsCtrl.deleteEvent);
 // FIND a single event
 router.get('/find/:code', eventsCtrl.findEvent)
 
+// PUT / UPDATE event participants.
+router.put('/join', eventsCtrl.joinEvent);
+
 module.exports = router;

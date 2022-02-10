@@ -21,3 +21,7 @@ export function deleteEvent(selectedEvent) {
 export function findEvent(eventCode){
     return sendRequest(`${BASE_URL}/find/${eventCode}`)
 }
+
+export function joinEvent(eventId, userId){
+    return sendRequest(`${BASE_URL}/join`, 'PUT', {eventId, userId});
+}

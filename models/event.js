@@ -53,6 +53,12 @@ eventSchema.statics.getUserEvents = async function(userId) {
 eventSchema.methods.updateEvent = async function(newEventInfo){
     const event = await mongoose.model('Event').findOneAndUpdate({_id: newEventInfo._id}, newEventInfo)
     return event.save();
+};
+
+eventSchema.methods.addUserToEvent = async function(userId){
+    const event = this;
+    event.attendees.push(userId);
+    return event.save();
 }
 
 module.exports = mongoose.model('Event', eventSchema);

@@ -7,7 +7,8 @@ module.exports = {
     getUserEvents,
     updateEvent,
     deleteEvent,
-    findEvent
+    findEvent,
+    joinEvent,
 }
 
 async function create(req, res){
@@ -44,7 +45,15 @@ async function deleteEvent(req, res) {
 
 
 async function findEvent(req, res) {
-    console.log(req.params);
     const event = await Event.findById(req.params.code)
-    if (event) res.json(event);
+    res.json(event);
+}
+
+
+async function joinEvent(req, res) {
+    const event = await Event.findById(req.body.eventId);
+    const user = await User.findById(req.body.userId);
+    await event.addUserToEvent(user._id);
+    await User.addEvent(req.body.userId, event);
+    res.json(event);
 }
