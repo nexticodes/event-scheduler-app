@@ -173,7 +173,7 @@ const NewEventForm = ({ mode, handleModal }) => {
           <h1>Event Created Successfully!</h1>
           <div className='event-code-container'>
             <h2>Copy the Event code below and share it to your friends!</h2>
-            <span className='after-holder'><input type='text' value={eventCode} onClick={() => {navigator.clipboard.writeText(eventCode)}}/></span>
+            <span className='after-holder'><input type='text' value={eventCode} readOnly onClick={() => {navigator.clipboard.writeText(eventCode)}}/></span>
             <button onClick={() => handleModal('',false)} > Done! </button>
           </div>
        </>
