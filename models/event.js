@@ -46,8 +46,8 @@ eventSchema.virtual('eventExpense').get(function(){
 });
 
 eventSchema.statics.getUserEvents = async function(userId) {
-    const userEvents = await mongoose.model('Event').find({host: userId});
-    return userEvents;
+    const user = await mongoose.model('User').findById(userId).populate('events');
+    return user.events;
 };
 
 eventSchema.methods.updateEvent = async function(newEventInfo){
