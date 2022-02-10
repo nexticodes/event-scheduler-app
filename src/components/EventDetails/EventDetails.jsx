@@ -4,6 +4,7 @@ import DeleteButton from "../DeleteButton/DeleteButton";
 import ParticipantsList from "../ParticipantsList/ParticipantsList";
 
 const EventDetails = ({
+  handleJoinEvent,
   selectedEvent,
   handleUpdateSave,
   handleDelete,
@@ -43,7 +44,7 @@ const EventDetails = ({
   };
 
   const isUserHost = () => {
-    return selectedEvent.host._id === user._id;
+    return selectedEvent.host === user._id;
   }
 
   const handleSave = async () => {
@@ -69,7 +70,6 @@ const EventDetails = ({
     <div className="event-details-container">
       <div className="event-details-header">
         {isUpdating ? "Updating" : "Viewing"}
-        {isUserInEvent() ? "welcome back" : "what"}
         <textarea
           disabled={!isUpdating}
           className="event-title"
@@ -185,22 +185,27 @@ const EventDetails = ({
       </form>
       {isUserInEvent() ? (
         <>
-          {isUpdating ? (
+          {isUserHost() && 
             <>
-              <DeleteButton handleDelete={handleDelete} />
-              <button onClick={handleSave}>SAVE</button>
+            
+              {isUpdating ? (
+                <>
+                <DeleteButton handleDelete={handleDelete} />
+                <button onClick={handleSave}>SAVE</button>
+                </>
+                ) : (
+                  <button
+                  onClick={() => setIsUpdating(true) && setUpdateSuccess(false)}
+                  >
+                  EDIT
+                  </button>
+                  )}
             </>
-          ) : (
-            <button
-              onClick={() => setIsUpdating(true) && setUpdateSuccess(false)}
-            >
-              EDIT
-            </button>
-          )}
+          }
           {!isUserHost() && <button>LEAVE EVENT</button>}
         </>
       ) : 
-            <button>JOIN EVENT</button>
+            <button onClick={handleJoinEvent}>JOIN EVENT</button>
       }
       <p onClick={() => setSelectedEvent([])}>GO BACK TO EVENTS LIST</p>
     </div>
