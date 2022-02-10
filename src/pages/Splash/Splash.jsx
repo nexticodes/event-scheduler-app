@@ -1,5 +1,4 @@
 import './Splash.css';
-import {useState} from 'react';
 import { Link } from 'react-router-dom';
 import CreatorContainer from '../../components/CreatorContainer/CreatorContainer';
 import About from '../../components/About/About';

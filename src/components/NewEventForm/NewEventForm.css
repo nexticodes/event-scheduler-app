@@ -26,7 +26,7 @@
     content: "$";
 }
 
-.new-event-form input[name="title"], input[name="location"], input[name="date"] {
+.new-event-form input[name="title"], input[name="date"] {
     width: 60%;
 }
 

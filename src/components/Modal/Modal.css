@@ -1,11 +1,13 @@
 .backdrop {
     display: block;
     position: absolute;
+    top: 0;
     z-index: 49;
     height: 100%;
     width: 100%;
-    overflow: none;
+    overflow-y: hidden;
     background-color: rgba(0, 0, 0, 0.8);
+    margin: 0;
 }
 
 .modal-container {
@@ -13,14 +15,15 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 15vh;
+    top: 10vh;
     margin: auto;
-    width: 80%;
+    width: 95%;
     z-index: 100;
     padding: 5vh 5vw;
     border-radius: 20px;
     box-shadow: 0px 0px 4px white;
-    border: 3px solid var(--gray-light)
+    border: 3px solid var(--gray-light);
+
 }
 
 #modal-x{
