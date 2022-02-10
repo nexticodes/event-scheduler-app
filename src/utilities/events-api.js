@@ -6,7 +6,7 @@ export function createEvent(eventDetails){
     return sendRequest(BASE_URL, 'POST', eventDetails);
 };
 
-export function getEvents() {
+export function getUserEvents() {
     return sendRequest(BASE_URL);
 }
 

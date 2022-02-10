@@ -6,7 +6,7 @@ const eventsCtrl = require('../../controllers/api/events');
 router.post('/', eventsCtrl.create);
 
 // GET /api/events
-router.get('/', eventsCtrl.getEvents);
+router.get('/', eventsCtrl.getUserEvents);
 
 router.put('/update', eventsCtrl.updateEvent);
 
