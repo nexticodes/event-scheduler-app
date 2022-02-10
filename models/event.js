@@ -45,9 +45,9 @@ eventSchema.virtual('eventExpense').get(function(){
     return this.attendees.length * coverFee;
 });
 
-
-eventSchema.statics.getEvents = function(userId) {
-    return this.find({user: userId})
+eventSchema.statics.getUserEvents = async function(userId) {
+    const userEvents = await mongoose.model('Event').find({host: userId});
+    return userEvents;
 };
 
 eventSchema.methods.updateEvent = async function(newEventInfo){

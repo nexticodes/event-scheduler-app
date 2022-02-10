@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema; 
 const bcrypt = require('bcrypt');
+const { events } = require('./event');
 
 const SALT_ROUNDS = 6;
 
@@ -49,8 +50,11 @@ userSchema.pre('save', async function(next) {
     this.password = await bcrypt.hash(this.password, SALT_ROUNDS)
 })
 
-userSchema.statics.addOneToEvent = function({_id, numEventsLifetime}){
-    this.findByIdAndUpdate(_id, { $set: { 'numEventsLifetime': numEventsLifetime + 1}});
+userSchema.statics.addEvent = async function(id, event){
+    await this.findByIdAndUpdate(id, {
+        $push: { 'events': event},
+        $inc: { 'numEventsLifetime': 1},
+    });
 }
 
 module.exports = mongoose.model('User', userSchema);
