@@ -17,3 +17,7 @@ export function updateEvent(updatedEventDetails) {
 export function deleteEvent(selectedEvent) {
     return sendRequest(`${BASE_URL}/delete`, 'DELETE', selectedEvent);
 }
+
+export function findEvent(eventCode){
+    return sendRequest(`${BASE_URL}/find/${eventCode}`)
+}

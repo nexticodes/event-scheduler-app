@@ -13,4 +13,7 @@ router.put('/update', eventsCtrl.updateEvent);
 // DELETE an event
 router.delete('/delete', eventsCtrl.deleteEvent);
 
+// FIND a single event
+router.get('/find/:code', eventsCtrl.findEvent)
+
 module.exports = router;
