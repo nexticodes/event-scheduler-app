@@ -47,12 +47,13 @@ const EventsPage = ({ user }) => {
     <main className="events-page">
       {modalVisible && (
         <Modal
+          setSelectedEvent={setSelectedEvent}
           modalType={modalType}
           setEvents={setEvents}
           handleModal={handleModal}
         />
       )}
-      {selectedEvent.length == 0 ? (
+      {selectedEvent.length === 0 ? (
         <>
           <div className="user-profile-container">
             <ProfileBox user={user} />

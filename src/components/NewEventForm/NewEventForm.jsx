@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as eventsAPI from '../../utilities/events-api';
 import './NewEventForm.css';
 
-const NewEventForm = ({ mode, handleModal }) => {
+const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
   const [eventInfo, setEventInfo] = useState({
     title: '',
     alias: '',
@@ -46,7 +46,11 @@ const NewEventForm = ({ mode, handleModal }) => {
           finalWarning: 0,
         });
         setShowEventCode(true);
-      };
+      } else if (form === 'join') {
+        const event = await eventsAPI.findEvent(eventCode);
+        setSelectedEvent(event);
+        handleModal('',false)
+      }
   };
 
   function calculateDate(operation, numDays) {

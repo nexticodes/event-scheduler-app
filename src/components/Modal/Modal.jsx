@@ -1,8 +1,7 @@
 import NewEventForm from '../NewEventForm/NewEventForm';
-import EventDetails from '../EventDetails/EventDetails';
 import './Modal.css';
 
-const Modal = ({ modalType, handleModal, setEvents }) => {
+const Modal = ({ modalType, handleModal, setEvents, setSelectedEvent }) => {
     return (
         <>
             <div onClick={() => handleModal('',false)} className='backdrop'>
@@ -10,7 +9,9 @@ const Modal = ({ modalType, handleModal, setEvents }) => {
             <div className='modal-container'>
                 <h3 id='modal-x' onClick={() => handleModal('',false)}>X</h3>
                 <div className='modal-body'>
-                    {modalType === 'event' && <NewEventForm setEvents={setEvents} handleModal={handleModal} />}
+                    {modalType === 'event' && <NewEventForm 
+                    setSelectedEvent={setSelectedEvent}
+                    setEvents={setEvents} handleModal={handleModal} />}
                 </div>
             </div>
         </>

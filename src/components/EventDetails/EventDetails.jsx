@@ -94,6 +94,7 @@ const EventDetails = ({ selectedEvent, handleUpdateSave, handleDelete, setSelect
             />
           </div>
         </div>
+        <span className='after-holder'><button type='text' onClick={() => {navigator.clipboard.writeText(updatedEvent['_id'])}}>CLICK TO COPY EVENT CODE</button></span>
         <div className="middle">
           <ParticipantsList />
           <div className="location-map-container">
