@@ -1,5 +1,5 @@
 const Event = require('../../models/event');
-const User = require('../../models/event')
+const User = require('../../models/user');
 const Channel = require('../../models/channel')
 
 module.exports = {
@@ -11,18 +11,21 @@ module.exports = {
 
 async function create(req, res){
     const newEvent = req.body;
-    newEvent.host = req.user._id;
+    const userId = req.user._id
+    newEvent.host = userId;
+    newEvent.alias = newEvent.alias.toUpperCase();
     newEvent.active = true;
-    newEvent.attendees.push(req.user._id);
+    newEvent.attendees.push(userId);
     newEvent.channel = await Channel.create({
         participants: newEvent.attendees,
     })
-    const events = await Event.create(newEvent);
-    res.json(events);
+    const event = await Event.create(newEvent);
+    await User.addOneToEvent(req.user);
+    res.json(event);
 }
 
 async function getEvents(req, res){
-    const events = await User.getEvents(req.user._id);
+    const events = await Event.getEvents(req.user._id);
     res.json(events);
 }
 

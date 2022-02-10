@@ -49,4 +49,8 @@ userSchema.pre('save', async function(next) {
     this.password = await bcrypt.hash(this.password, SALT_ROUNDS)
 })
 
+userSchema.statics.addOneToEvent = function({_id, numEventsLifetime}){
+    this.findByIdAndUpdate(_id, { $set: { 'numEventsLifetime': numEventsLifetime + 1}});
+}
+
 module.exports = mongoose.model('User', userSchema);
