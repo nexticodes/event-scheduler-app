@@ -1,10 +1,9 @@
 import './Event.css';
 
-const Event = ({handleModal, event, setSelectedEvent}) => {
+const Event = ({event, setSelectedEvent}) => {
     const {alias, eventDate, attendees, location, active} = event;
     const handleClick = () => {
-        setSelectedEvent(event);
-        handleModal('detail', true)
+        setSelectedEvent(event._id);
     }
     return (
         <>          
