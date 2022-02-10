@@ -16,7 +16,6 @@ const Splash = () => {
                 </div>
                 <About />
                 <hr />
-                <CreatorContainer />
             </div>
             <Footer/>
         </>
