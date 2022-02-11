@@ -57,6 +57,11 @@
     font-size: 1rem;    
 }
 
+.after-holder {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+}
 .after-holder:focus-within::after {
     content: 'COPIED!';
 }
