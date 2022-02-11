@@ -71,19 +71,7 @@ const EventDetails = ({
     <div className="event-details-container">
       <div className="event-details-header">
         {isUpdating ? "Updating" : "Viewing"}
-        <textarea
-          disabled={!isUpdating}
-          className="event-title"
-          name="title"
-          value={updatedEvent["title"]}
-          onChange={handleChange}
-        />
-      </div>
-
-      <form className="event-details-form">
-        <div className="top">
-          <div className="deets">
-            <input
+        <input
               maxLength={3}
               disabled={!isUpdating}
               className="alias"
@@ -91,6 +79,18 @@ const EventDetails = ({
               value={updatedEvent["alias"].toUpperCase()}
               onChange={handleChange}
             />
+      </div>
+
+      <form className="event-details-form">
+        <div className="top">
+          <div className="deets">
+          <textarea
+            disabled={!isUpdating}
+            className="event-title"
+            name="title"
+            value={updatedEvent["title"]}
+            onChange={handleChange}
+          />
           </div>
 
           <div className="datetime">

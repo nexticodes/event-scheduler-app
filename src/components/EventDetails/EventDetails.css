@@ -87,9 +87,8 @@ textarea:disabled {
 }
 
 
-.event-details-form .location {
-    height: 5vh;
-    margin: 4vh auto;
+.event-details-form input[name='location'] {
+    width: 100%;
 }
 
 .event-details-form input[type='number'] {
