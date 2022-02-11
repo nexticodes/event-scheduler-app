@@ -1,7 +1,7 @@
 import "./EventDetails.css";
 import { useState } from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
-import ParticipantsList from "../ParticipantsList/ParticipantsList";
+import AttendeesList from "../AttendeesList/AttendeesList";
 
 const EventDetails = ({
   handleJoinEvent,
@@ -39,7 +39,7 @@ const EventDetails = ({
 
   const isUserInEvent = () => {
     return (
-      selectedEvent.attendees.includes(user._id)
+      selectedEvent.attendees.filter(a => a._id === user._id).length >= 1
     );
   };
 
@@ -124,7 +124,7 @@ const EventDetails = ({
           </span>
         )}
         <div className="middle">
-          <ParticipantsList />
+          <AttendeesList attendees={selectedEvent.attendees}/>
           <div className="location-map-container">
             IMAGINARY MAP GOES HERE
             <input
@@ -187,7 +187,7 @@ const EventDetails = ({
         <>
           {isUserHost() && 
             <>
-            
+              
               {isUpdating ? (
                 <>
                 <DeleteButton handleDelete={handleDelete} />
