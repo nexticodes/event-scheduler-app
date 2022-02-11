@@ -1,7 +1,9 @@
-.participants-list-container {
+.attendees-list-container {
     height: 20vh;
     width: 30vw;
     border: 1px solid black;
     margin: 20px auto;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
