@@ -34,6 +34,30 @@
     width: 20%;
 }
 
+.new-event-form label .address-inputs{
+    width: 70%;
+    padding-left: 15vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-event-form label .address-inputs div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-event-form input[name="zip"]{
+    width: 35%;
+}
+
+.new-event-form input[name="state"]{
+    width: 55%;
+}
+
+.new-event-form input[name="address"] {
+    width: 100%;
+}
+
 .event-form-buttons, .join-event-form, .event-code-container {
     background: var(--gray-lightest);
     padding: 15px;

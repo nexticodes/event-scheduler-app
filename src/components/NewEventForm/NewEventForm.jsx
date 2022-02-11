@@ -8,7 +8,7 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
     alias: '',
     eventDate: '',
     eventTime: '',
-    location: '',
+    location: {},
     coverFee: 0,
     attendees: [],
     active: false,
@@ -16,6 +16,12 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
     finalWarning: 0,
     channel: '',
   });
+  const [locationInfo, setLocationInfo] = useState({
+    address: '',
+    city: '',
+    state: '',
+    zip: ''
+  })
   const [eventCode, setEventCode] = useState('');
   const [showEventCode, setShowEventCode] = useState(false);
   const [form, setForm] = useState('');
@@ -27,10 +33,15 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
     setError('');
   };
 
+  const handleAddressChange = (e) => {
+    setLocationInfo({ ...locationInfo, [e.target.name]: e.target.value });
+
+  };
+
   const handleSubmit = async (e) => {
       e.preventDefault();
       if (form === 'create'){
-        setEventInfo({...eventInfo});
+        setEventInfo({...eventInfo, location: locationInfo});
         const event = await eventsAPI.createEvent(eventInfo);
         setEventCode(event._id);
         setEventInfo({
@@ -38,13 +49,19 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
           alias: '',
           eventDate: '',
           eventTime: '',
-          location: '',
+          location: {},
           coverFee: 0,
           attendees: [],
           active: false,
           gracePeriod: 0,
           finalWarning: 0,
         });
+        setLocationInfo({
+          address: '',
+          city: '',
+          state: '',
+          zip: ''
+        })
         setShowEventCode(true);
       } else if (form === 'join') {
         const event = await eventsAPI.findEvent(eventCode);
@@ -102,14 +119,43 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
           />
         </label>
         <label>
-          Location
-          <input
-            type='text'
-            name='location'
-            value={eventInfo.location}
-            onChange={handleChange}
-            required
-          />
+          Address
+          <div className='address-inputs'>
+            <input
+              type='text'
+              name='address'
+              value={locationInfo.address}
+              onChange={handleAddressChange}
+              placeholder={'Address Line'}
+              required
+            />
+              <input
+                type='text'
+                name='city'
+                value={locationInfo.location}
+                placeholder={'City'}
+                onChange={handleAddressChange}
+                required
+                />
+            <div>
+              <input
+                type='text'
+                name='state'
+                value={locationInfo.location}
+                placeholder={'State'}
+                onChange={handleAddressChange}
+                required
+              />
+              <input
+                type='text'
+                name='zip'
+                placeholder={'Zip'}
+                value={locationInfo.location}
+                onChange={handleAddressChange}
+                required
+              />
+            </div>
+          </div>
         </label>
         <label>
           Cover Fee
