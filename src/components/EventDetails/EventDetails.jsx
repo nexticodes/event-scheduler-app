@@ -17,6 +17,7 @@ const EventDetails = ({
   const [chkbx, setChkbx] = useState(selectedEvent["active"]);
   const [isUpdating, setIsUpdating] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [copied, setCopied] = useState(false);
   const handleChange = (e) => {
     if (e.target.name === "active") {
       setChkbx(!chkbx);
@@ -113,14 +114,15 @@ const EventDetails = ({
         </div>
         {isUserInEvent() && (
           <span className="after-holder">
-            <button
+            <p
               type="text"
               onClick={() => {
-                navigator.clipboard.writeText(updatedEvent["_id"]);
+                navigator.clipboard.writeText(updatedEvent['_id'])
+                setCopied(true)
               }}
             >
-              CLICK TO COPY EVENT CODE
-            </button>
+              {!copied ? 'CLICK TO COPY EVENT CODE!' : 'EVENT CODE COPIED!'}
+            </p>
           </span>
         )}
         <div className="middle">
