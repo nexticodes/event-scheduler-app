@@ -9,9 +9,12 @@ const Splash = () => {
         <>
             <div className='splash-container'>
                 <div className='splash-title-container'>
-                    <h1 className='title'>EVENT SCHEDULER APP</h1>
+                    <h1 className='title'>AIGHT BET</h1>
                     <hr />
-                    <h3 className='sub-title'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia nihil vitae obcaecati explicabo cum repudiandae, commodi sint dignissimos assumenda praesentium labore cumque ullam tenetur nobis perspiciatis consequuntur odit veritatis dolores!</h3>
+                    <h3 className='sub-title'>Don't Just Plan It,<br/> Do It!</h3>
+                    <hr />
+                    <br />
+                    <br />
                     <button className='link-button'><Link to='/auth'>GET STARTED HERE</Link></button>
                 </div>
                 <About />

@@ -5,12 +5,35 @@
 .splash-title-container {
     padding: 8vh 10vw 6vh 10vw;
     margin: 0 auto;
-    background-color: pink;
+    background-color: #464646;
     box-shadow: 0px -2px 10px black inset;
+    color: white;
 }
 
 
 .link-button {
     padding: 20px;
     font-size: 40px;
+}
+
+.link-button a {
+    color: black;
+}
+
+.link-button a:visited {
+    color: black;
+}
+
+.title {
+    font-family: Bangers;
+    font-size: 72px;
+    letter-spacing: 4px;
+
+    text-shadow: 0px 1px 10px green;
+}
+
+.sub-title {
+    font-family: Bangers;
+    letter-spacing: 4px;
+    font-size: 27px;
 }

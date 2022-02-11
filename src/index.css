@@ -15,6 +15,8 @@
   box-sizing: border-box;
 }
 
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -68,4 +70,9 @@ code {
 
 .txt-align-right {
   text-align: right;
+}
+
+button, button a, a {
+  font-family: Bangers;
+  letter-spacing: 3px;
 }
