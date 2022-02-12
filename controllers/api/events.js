@@ -14,12 +14,14 @@ module.exports = {
 }
 
 async function create(req, res){
-    const newEvent = req.body;
+    const newEvent = req.body.eventDetails;
+    const eventLocation = req.body.locationDetails;
     const userId = req.user._id
-    const {lat, lng} = await getLongLat(`${newEvent.location.address} ${newEvent.location.city} ${newEvent.location.state} `)
+    const latLng = await getLongLat(`${eventLocation.address} ${eventLocation.city} ${eventLocation.state} `)
+    eventLocation.lat = latLng.lat;
+    eventLocation.lng = latLng.lng;
     newEvent.host = userId;
-    newEvent.location.lat = lat;
-    newEvent.location.lng = lng;
+    newEvent.location = eventLocation;
     newEvent.alias = newEvent.alias.toUpperCase();
     newEvent.active = true;
     newEvent.attendees.push(userId);
@@ -50,7 +52,7 @@ async function deleteEvent(req, res) {
 
 
 async function findEvent(req, res) {
-    const event = await Event.findById(req.params.code)
+    const event = await Event.findById(req.params.code).populate('attendees');
     res.json(event);
 }
 

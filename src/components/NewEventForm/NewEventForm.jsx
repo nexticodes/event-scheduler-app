@@ -42,9 +42,8 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
   const handleSubmit = async (e) => {
       e.preventDefault();
       if (form === 'create'){
-        setLocationInfo({...locationInfo});
         setEventInfo({...eventInfo, location: locationInfo});
-        const event = await eventsAPI.createEvent(eventInfo);
+        const event = await eventsAPI.createEvent(eventInfo,locationInfo);
         setEventCode(event._id);
         setEventInfo({
           title: '',

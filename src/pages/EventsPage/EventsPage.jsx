@@ -22,7 +22,7 @@ const EventsPage = ({ user }) => {
       }
       getEvents();
     },
-    [modalVisible]
+    [modalVisible, selectedEvent]
   );
 
   async function handleUpdateSave(updatedEvent) {
