@@ -3,12 +3,13 @@ import GoogleMapReact from 'google-map-react';
 import {RiMapPin2Fill} from 'react-icons/ri'
 
 
-const AddressMap = ({location}) => {
+const AddressMap = ({location, apiKey}) => {
+
   return (
       
     <div className='map-container'>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyDLzEROkaEHfE0C77wUQq7De6FK3tMhS9M' }}
+          bootstrapURLKeys={{ key: 'AIzaSyDLzEROkaEHfE0C77wUQq7De6FK3tMhS9M'}}
           defaultCenter={{lat: location.lat, lng: location.lng}}
           defaultZoom={12}
         >

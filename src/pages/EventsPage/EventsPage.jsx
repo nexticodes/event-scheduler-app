@@ -39,6 +39,14 @@ const EventsPage = ({ user }) => {
 		setSelectedEvent(updatedEvent);
 	}
 
+	async function getApiKey(){
+    let result = eventsAPI.getMapAPIKey();
+    return result;
+  }
+
+	console.log(getApiKey().then(r => r))
+
+
   function handleModal(type, isVisible) {
     setModalType(type);
     setModalVisible(isVisible);
@@ -79,6 +87,7 @@ const EventsPage = ({ user }) => {
         </>
       ) : (
         <EventDetails
+					apiKey={getApiKey()}
 					user={user}
 					handleJoinEvent={handleJoinEvent}
 					setSelectedEvent={setSelectedEvent}

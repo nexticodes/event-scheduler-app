@@ -10,7 +10,8 @@ module.exports = {
     deleteEvent,
     findEvent,
     joinEvent,
-    getLongLat
+    getLongLat,
+    getMapAPIKey
 }
 
 async function create(req, res){
@@ -70,4 +71,8 @@ async function joinEvent(req, res) {
 async function getLongLat(location){
     const longLat = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${process.env.GOOGLE_API_KEY}`);
     return longLat.data.results[0].geometry.location
+}
+
+function getMapAPIKey(req,res){
+    return process.env.GOOGLE_API_KEY
 }

@@ -11,6 +11,7 @@ const EventDetails = ({
   handleDelete,
   setSelectedEvent,
   user,
+  apiKey
 }) => {
   const [updatedEvent, setUpdatedEvent] = useState({
     ...selectedEvent,
@@ -29,6 +30,7 @@ const EventDetails = ({
     }
     setUpdatedEvent({ ...updatedEvent, [e.target.name]: e.target.value });
   };
+
 
   const checkDifference = () => {
     let isDifferent = false;
@@ -130,7 +132,7 @@ const EventDetails = ({
         <div className="middle">
           <AttendeesList attendees={selectedEvent.attendees}/>
           <div className="location-map-container">
-            <AddressMap location={updatedEvent.location}/>
+            <AddressMap apiKey={apiKey} location={updatedEvent.location}/>
             <input
               disabled={!isUpdating}
               name="location"
