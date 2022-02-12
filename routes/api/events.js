@@ -20,6 +20,6 @@ router.get('/find/:code', eventsCtrl.findEvent)
 router.put('/join', eventsCtrl.joinEvent);
 
 // GET API KEY
-router.get('/map/key', eventsCtrl.getMapAPIKey);
+// router.get('/map/key', eventsCtrl.getMapAPIKey);
 
 module.exports = router;

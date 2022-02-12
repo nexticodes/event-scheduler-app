@@ -26,6 +26,6 @@ export function joinEvent(eventId, userId){
     return sendRequest(`${BASE_URL}/join`, 'PUT', {eventId, userId});
 }
 
-export function getMapAPIKey(){
-    return sendRequest(`${BASE_URL}/map/key`);
-}
+// export function getMapAPIKey(){
+//     return sendRequest(`${BASE_URL}/map/key`);
+// }

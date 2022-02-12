@@ -11,7 +11,6 @@ module.exports = {
     findEvent,
     joinEvent,
     getLongLat,
-    getMapAPIKey
 }
 
 async function create(req, res){
@@ -73,6 +72,6 @@ async function getLongLat(location){
     return longLat.data.results[0].geometry.location
 }
 
-function getMapAPIKey(req,res){
-    return process.env.GOOGLE_API_KEY
-}
+// function getMapAPIKey(req,res){
+//     return process.env.GOOGLE_API_KEY
+// }
