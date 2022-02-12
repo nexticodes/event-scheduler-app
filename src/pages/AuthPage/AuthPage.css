@@ -11,6 +11,7 @@
 .auth-container h1 {
     font-size: 48px;
     margin-bottom: 5vh;
+    margin-top: 10vh;
 }
 
 .auth-container button { 

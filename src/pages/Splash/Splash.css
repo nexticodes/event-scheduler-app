@@ -22,14 +22,18 @@ hr {
 .link-button {
     padding: 20px;
     font-size: 40px;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px gray;
 }
 
 .link-button a {
-    color: black;
+    color: white;
 }
 
 .link-button a:visited {
-    color: black;
+    color: white;
+    
 }
 
 .title {
