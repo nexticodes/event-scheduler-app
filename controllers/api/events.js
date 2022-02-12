@@ -58,11 +58,12 @@ async function findEvent(req, res) {
 
 
 async function joinEvent(req, res) {
-    const event = await Event.findById(req.body.eventId);
+    const event = await Event.findById(req.body.eventId)
     const user = await User.findById(req.body.userId);
-    await event.addUserToEvent(user._id);
     await User.addEvent(req.body.userId, event);
-    res.json(event);
+    await event.addUserToEvent(user._id)
+    const newEvent = await Event.findById(req.body.eventId).populate('attendees');
+    res.json(newEvent);
 }
 
 // helper
