@@ -1,9 +1,8 @@
 import "./EventDetails.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import AttendeesList from "../AttendeesList/AttendeesList";
 import AddressMap from "../AddressMap/AddressMap";
-import * as eventsAPI from '../../utilities/events-api';
 
 const EventDetails = ({
   handleJoinEvent,
