@@ -1,6 +1,5 @@
 import './Splash.css';
 
-import CreatorContainer from '../../components/CreatorContainer/CreatorContainer';
 import About from '../../components/About/About';
 import Footer from '../../components/Footer/Footer';
 
@@ -9,15 +8,12 @@ const Splash = () => {
         <>
             <div className='splash-container'>
                 <div className='splash-title-container'>
-                    <h1 className='title'>AIGHT BET</h1>
+                    <h1 className='title'>AIGHT <span style={{color: 'gold'}}>BET</span></h1>
                     <hr />
-                    <h3 className='sub-title'>Don't Just Plan It,<br/> Do It!</h3>
+                    <h3 className='sub-title'>Don't Just Plan It,<br/> <span style={{color: 'gold'}}>Do It!</span></h3>
                     <hr />
-                    <br />
-                    <br />
                 </div>
                 <About />
-                <hr />
             </div>
             <Footer/>
         </>
