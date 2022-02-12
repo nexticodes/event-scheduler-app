@@ -6,8 +6,10 @@
 
 .user-profile-container {
     display: flex;
+    width: 100vw;
+    margin: 0 auto;
     margin-top: 5vh;
-    padding: 0px 20px 5vh 20px;
+    padding: 0px 10vw 5vh 10vw;
     align-items: center;
     justify-content: space-between;
     height: 26vh;

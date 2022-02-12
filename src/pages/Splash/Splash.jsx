@@ -1,5 +1,5 @@
 import './Splash.css';
-import { Link } from 'react-router-dom';
+
 import CreatorContainer from '../../components/CreatorContainer/CreatorContainer';
 import About from '../../components/About/About';
 import Footer from '../../components/Footer/Footer';
@@ -15,7 +15,6 @@ const Splash = () => {
                     <hr />
                     <br />
                     <br />
-                    <button className='link-button'><Link to='/auth'>GET STARTED HERE</Link></button>
                 </div>
                 <About />
                 <hr />
