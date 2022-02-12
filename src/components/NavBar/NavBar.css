@@ -3,11 +3,13 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: var(--navy-blue);
+    background-color: black;
     color: white;
     text-decoration: none;
     margin: 0 auto;
     width: 100%;
+    font-family: Bangers;
+    font-size: 30px;
 }
 
 a {

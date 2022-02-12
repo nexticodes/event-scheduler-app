@@ -30,7 +30,7 @@ export default function LoginForm({ setUser, navigate, setForm }) {
 
   return (
     <>
-      <h1>Login</h1>
+      <h1 className='bangers-title'>Login</h1>
       <div className="form-container" onSubmit={handleSubmit}>
         <form autoComplete="off" >
           <label>Email</label>
