@@ -3,8 +3,8 @@
     width: 90vw;
     margin: 0 auto;
     padding-top: 2rem;
-    border-radius: 50%;
     border: 2px solid black;
+    box-shadow: 0px 0px 5px white;
 }
 
 
@@ -15,7 +15,6 @@
     justify-content: space-around;
     width: 70vw;
     margin: 0 auto;
-    
 }
 
 .form-container input {

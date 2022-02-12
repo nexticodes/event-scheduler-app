@@ -10,18 +10,15 @@ const NavBar = ({user, setUser}) => {
     }
     return (
         <nav>
-            <Link to="/">Home</Link>
-            <div>
-                &nbsp; | &nbsp; 
-            </div>
+
             { user ?
                 <>
                     <Link to="/events"><span>Welcome {user.name}</span></Link>
-                    &nbsp; | &nbsp;
                     <Link to="" onClick={handleLogOut}>Log Out</Link>
                 </>
                 :
                 <>
+                    <Link to="/">Home</Link>
                     <Link to="/auth">Sign In</Link>
                 </>
             }
