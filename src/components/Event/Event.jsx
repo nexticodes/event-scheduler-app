@@ -12,7 +12,7 @@ const Event = ({event, setSelectedEvent}) => {
                     <h1>{alias}</h1>
                 </div>
                 <div className='event-details'>
-                    <h4>{location}</h4>
+                    <h4>{location.name}</h4>
                     <span className='smaller'>WHERE</span>
                     <h4 >{new Date(eventDate).toLocaleDateString()}</h4>
                     <span className='smaller'>DATE</span>

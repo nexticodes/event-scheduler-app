@@ -1,7 +1,9 @@
 import "./EventDetails.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import AttendeesList from "../AttendeesList/AttendeesList";
+import AddressMap from "../AddressMap/AddressMap";
+import * as eventsAPI from '../../utilities/events-api';
 
 const EventDetails = ({
   handleJoinEvent,
@@ -18,6 +20,8 @@ const EventDetails = ({
   const [isUpdating, setIsUpdating] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [copied, setCopied] = useState(false);
+
+
   const handleChange = (e) => {
     if (e.target.name === "active") {
       setChkbx(!chkbx);
@@ -128,11 +132,11 @@ const EventDetails = ({
         <div className="middle">
           <AttendeesList attendees={selectedEvent.attendees}/>
           <div className="location-map-container">
-            IMAGINARY MAP GOES HERE
+            <AddressMap location={updatedEvent.location}/>
             <input
               disabled={!isUpdating}
               name="location"
-              value={updatedEvent["location"]}
+              value={updatedEvent["location"].name}
               onChange={handleChange}
             />
           </div>

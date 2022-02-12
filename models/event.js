@@ -1,29 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const locationSchema = new Schema({
-    address: {type: String, maxLength: 100, required: true},
-    city: {type: String, maxLength: 100},
-    state: {type: String, maxLength: 2},
-    zip: {type: String},
-    longLat: {
-        long: {
-            type: String,
-        },
-        lat: {
-            type: String
-        }
-    }
-},{
-    timestamps: true
-});
-
 const eventSchema = new Schema({
     title: { type: String, required: true, maxLength: 50 },
     host: {type: Schema.Types.ObjectId, ref: 'User'},
     alias: {type: String},
     eventDate: {type: Date},
-    location: { type: String },
+    location: { 
+        name: {type: String, maxLength: 15},
+        address: {type: String, maxLength: 100},
+        city: {type: String, maxLength: 100},
+        state: {type: String},
+        zip: {type: String},
+        lat: {type: Number},
+        lng: {type: Number}
+    },
     eventTime:{type: String},
     coverFee: Number,
     attendees: [{

@@ -17,10 +17,11 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
     channel: '',
   });
   const [locationInfo, setLocationInfo] = useState({
+    name: '',
     address: '',
     city: '',
     state: '',
-    zip: ''
+    zip: '',
   })
   const [eventCode, setEventCode] = useState('');
   const [showEventCode, setShowEventCode] = useState(false);
@@ -41,6 +42,7 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
   const handleSubmit = async (e) => {
       e.preventDefault();
       if (form === 'create'){
+        setLocationInfo({...locationInfo});
         setEventInfo({...eventInfo, location: locationInfo});
         const event = await eventsAPI.createEvent(eventInfo);
         setEventCode(event._id);
@@ -57,10 +59,11 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
           finalWarning: 0,
         });
         setLocationInfo({
+          name: '',
           address: '',
           city: '',
           state: '',
-          zip: ''
+          zip: '',
         })
         setShowEventCode(true);
       } else if (form === 'join') {
@@ -121,6 +124,14 @@ const NewEventForm = ({ mode, handleModal, setSelectedEvent }) => {
         <label>
           Address
           <div className='address-inputs'>
+          <input
+              type='text'
+              name='name'
+              value={locationInfo.name}
+              onChange={handleAddressChange}
+              placeholder={'Name This Address!'}
+              required
+            />
             <input
               type='text'
               name='address'

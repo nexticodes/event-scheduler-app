@@ -1,6 +1,7 @@
 const Event = require('../../models/event');
 const User = require('../../models/user');
 const Channel = require('../../models/channel')
+const axios = require('axios');
 
 module.exports = {
     create,
@@ -9,12 +10,16 @@ module.exports = {
     deleteEvent,
     findEvent,
     joinEvent,
+    getLongLat
 }
 
 async function create(req, res){
     const newEvent = req.body;
     const userId = req.user._id
+    const {lat, lng} = await getLongLat(`${newEvent.location.address} ${newEvent.location.city} ${newEvent.location.state} `)
     newEvent.host = userId;
+    newEvent.location.lat = lat;
+    newEvent.location.lng = lng;
     newEvent.alias = newEvent.alias.toUpperCase();
     newEvent.active = true;
     newEvent.attendees.push(userId);
@@ -56,4 +61,10 @@ async function joinEvent(req, res) {
     await event.addUserToEvent(user._id);
     await User.addEvent(req.body.userId, event);
     res.json(event);
+}
+
+// helper
+async function getLongLat(location){
+    const longLat = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${process.env.GOOGLE_API_KEY}`);
+    return longLat.data.results[0].geometry.location
 }
