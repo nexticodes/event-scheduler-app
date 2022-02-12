@@ -76,3 +76,10 @@ button, button a, a {
   font-family: Bangers;
   letter-spacing: 3px;
 }
+
+.bangers-title {
+  font-family: bangers;
+  text-shadow: 0px 1px 10px black;
+  color: white;
+  letter-spacing: 5px;
+}
