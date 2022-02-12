@@ -1,3 +1,9 @@
+.about-container{
+    background-color: #787777;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
 .about-container hr {
     width: 80vw;
 }
