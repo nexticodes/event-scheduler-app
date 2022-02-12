@@ -53,7 +53,6 @@ const EventDetails = ({
 
   const handleSave = async () => {
     setIsUpdating(false);
-    // check to see if there are any differences between updatedEvent, and setUpdatedEvent;
     if (checkDifference()) {
       handleUpdateSave(updatedEvent);
       setUpdateSuccess(true);
