@@ -9,4 +9,5 @@
     overflow-y: hidden;
     background-color: var(--gray-light);
     margin: 0 auto;
+    padding-left: 8vw;
 }
