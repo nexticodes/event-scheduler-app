@@ -3,6 +3,7 @@ import { useState } from "react";
 import DeleteButton from "../DeleteButton/DeleteButton";
 import AttendeesList from "../AttendeesList/AttendeesList";
 import AddressMap from "../AddressMap/AddressMap";
+import {GiTwoCoins} from 'react-icons/gi';
 
 const EventDetails = ({
   handleJoinEvent,
@@ -229,7 +230,7 @@ const EventDetails = ({
           {!isUserHost() && <button>LEAVE EVENT</button>}
         </>
       ) : 
-            <button onClick={handleJoinEvent}>JOIN EVENT</button>
+            <button id='join-button' onClick={handleJoinEvent}>JOIN EVENT &nbsp; &nbsp; -{updatedEvent.coverFee}<GiTwoCoins size={24} color={'gold'} /></button>
       }
       <p onClick={() => setSelectedEvent([])}>GO BACK TO EVENTS LIST</p>
     </div>

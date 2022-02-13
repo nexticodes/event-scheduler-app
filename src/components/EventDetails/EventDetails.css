@@ -288,3 +288,10 @@ input:disabled {
     left: 5vw;
     top: 2vh;
 }
+
+#join-button {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+}
