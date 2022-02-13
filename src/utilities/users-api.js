@@ -14,6 +14,10 @@ export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 }
 
+export function getUpdatedUser() {
+    return sendRequest(`${BASE_URL}/refresh`)
+}
+
 export async function sendRequest(url, method = 'GET', payload){
     const options = { method };
     if (payload) {
