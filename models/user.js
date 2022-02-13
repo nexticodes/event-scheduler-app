@@ -54,7 +54,9 @@ userSchema.pre('save', async function(next) {
 userSchema.statics.addEvent = async function(id, event){
     await this.findByIdAndUpdate(id, {
         $push: { 'events': event},
-        $inc: { 'numEventsLifetime': 1},
+        $inc: { 'numEventsLifetime': 1,
+                'coins': -event.coverFee,
+            },
     });
 }
 
