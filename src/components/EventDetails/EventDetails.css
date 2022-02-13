@@ -145,6 +145,7 @@ div.alias {
     font-family: Bangers;
     letter-spacing: 5px;
     margin: 0 auto;
+    text-shadow: -2px 5px 2px white
 }
 
 .event-details-container input[name='alias']:disabled{
