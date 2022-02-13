@@ -20,6 +20,7 @@ const EventsPage = ({ user, updateUser }) => {
       async function getEvents() {
         const allEvents = await eventsAPI.getUserEvents();
         setEvents(allEvents);
+        updateUser();
         setRefresh(false);
       }
       getEvents();
@@ -29,6 +30,7 @@ const EventsPage = ({ user, updateUser }) => {
 
   function handleRefresh() {
     setRefresh(true);
+    updateUser();
   }
 
   async function handleUpdateSave(updatedEvent) {
