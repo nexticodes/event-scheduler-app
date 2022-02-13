@@ -11,7 +11,6 @@ const EventDetails = ({
   handleDelete,
   setSelectedEvent,
   user,
-  apiKey
 }) => {
   const [updatedEvent, setUpdatedEvent] = useState({
     ...selectedEvent,
@@ -87,63 +86,70 @@ const EventDetails = ({
 
       <form className="event-details-form">
         <div className="top">
-          <div className="deets">
-          <textarea
-            disabled={!isUpdating}
-            className="event-title"
-            name="title"
-            value={updatedEvent["title"]}
-            onChange={handleChange}
-          />
-          </div>
+          <div>
+            <div className="deets">
+            <textarea
+              disabled={!isUpdating}
+              className="event-title"
+              name="title"
+              value={updatedEvent["title"]}
+              onChange={handleChange}
+            />
+            </div>
 
-          <div className="datetime">
-            <input
-              type="date"
-              disabled={!isUpdating}
-              className="eventDate"
-              name="eventDate"
-              value={formatDate(new Date(updatedEvent["eventDate"]))}
-              onChange={handleChange}
-            />
-            <input
-              type="time"
-              disabled={!isUpdating}
-              className="eventTime"
-              name="eventTime"
-              value={updatedEvent["eventTime"]}
-              onChange={handleChange}
-            />
+            <div className="datetime">
+              <input
+                type="date"
+                disabled={!isUpdating}
+                className="eventDate"
+                name="eventDate"
+                value={formatDate(new Date(updatedEvent["eventDate"]))}
+                onChange={handleChange}
+              />
+              <input
+                type="time"
+                disabled={!isUpdating}
+                className="eventTime"
+                name="eventTime"
+                value={updatedEvent["eventTime"]}
+                onChange={handleChange}
+              />
+            </div>
           </div>
+            {isUserInEvent() && (
+              <div className="after-holder">
+                <p
+                  type="text"
+                  onClick={() => {
+                    navigator.clipboard.writeText(updatedEvent['_id'])
+                    setCopied(true)
+                  }}
+                >
+                  {!copied ? 'CLICK TO COPY EVENT CODE!' : 'EVENT CODE COPIED!'}
+                </p>
+              </div>
+            )}
         </div>
-        {isUserInEvent() && (
-          <span className="after-holder">
-            <p
-              type="text"
-              onClick={() => {
-                navigator.clipboard.writeText(updatedEvent['_id'])
-                setCopied(true)
-              }}
-            >
-              {!copied ? 'CLICK TO COPY EVENT CODE!' : 'EVENT CODE COPIED!'}
-            </p>
-          </span>
-        )}
         <div className="middle">
           <AttendeesList attendees={selectedEvent.attendees}/>
           <div className="location-map-container">
-            <AddressMap apiKey={apiKey} location={updatedEvent.location}/>
-            <input
-              disabled={!isUpdating}
-              name="location"
-              value={updatedEvent["location"].name}
-              onChange={handleChange}
-            />
+            <AddressMap location={updatedEvent.location}/>
           </div>
         </div>
         <div className="bottom">
+        <div className="number-labels">
+                <span className='coin-label'>
+                  JOIN<br/>FEE
+                </span>
+                <span className='gp-label'>
+                   END GRACE<br/>PERIOD
+                </span>
+                <span className='fw-label'>
+                  FINAL<br/>CALL
+                </span>
+            </div>
           <div className="bottom-numbers">
-            <span>
+            <span className='coverFee'>
               <input
                 disabled={!isUpdating}
                 type="number"
@@ -153,7 +159,7 @@ const EventDetails = ({
                 onChange={handleChange}
               />
             </span>
-            <span>
+            <span className='gracePeriod'>
               <input
                 disabled={!isUpdating}
                 type="number"
@@ -163,7 +169,7 @@ const EventDetails = ({
                 onChange={handleChange}
               />
             </span>
-            <span>
+            <span className='finalWarning'>
               <input
                 disabled={!isUpdating}
                 type="number"
@@ -174,6 +180,17 @@ const EventDetails = ({
               />
             </span>
           </div>
+            <div className="number-labels">
+                <span className='coin-label'>
+                  COIN{updatedEvent.coverFee === 1 ? '' : 'S'}
+                </span>
+                <span className='gp-label'>
+                  DAY{updatedEvent.gracePeriod === 1 ? '' : 'S'}
+                </span>
+                <span className='fw-label'>
+                  DAY{updatedEvent.finalWarning === 1 ? '' : 'S'}
+                </span>
+            </div>
           <div className="bottom-active">
             <label>Active</label>
             <input

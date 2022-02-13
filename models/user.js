@@ -26,6 +26,7 @@ const userSchema = new Schema({
             ref: 'Event'
         }
     ],
+    coins: {type: Number, default: 10},
     numFlakesLifetime: {
         type: Number,
         default: 0,

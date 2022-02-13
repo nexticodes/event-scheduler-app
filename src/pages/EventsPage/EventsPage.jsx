@@ -8,11 +8,12 @@ import EventDetails from "../../components/EventDetails/EventDetails";
 
 import * as eventsAPI from "../../utilities/events-api";
 
-const EventsPage = ({ user }) => {
+const EventsPage = ({ user, updateUser }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalType, setModalType] = useState("");
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState([]);
+  console.log(user);
 
   useEffect(
     function () {
