@@ -2,9 +2,14 @@
     margin: 0 auto;
     width: 100%;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
 }
 
 .attendee-container p {
     color: black;
     font-weight: bold;
+    margin: 0 auto;
 }
