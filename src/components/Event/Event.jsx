@@ -9,7 +9,7 @@ const Event = ({event, setSelectedEvent}) => {
         <>          
             <div className='event event-container' onClick={handleClick}>
                 <div className='event-alias-container'>
-                    <h1>{alias}</h1>
+                    <h1 id='event-alias'>{alias}</h1>
                 </div>
                 <div className='event-details'>
                     <h4>{location.name}</h4>

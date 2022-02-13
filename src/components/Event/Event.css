@@ -16,6 +16,13 @@
     border-radius: 10px;
 }
 
+h1#event-alias{
+    font-family: Bangers;
+    letter-spacing: 3px;
+    transform: scale(1.5);
+    margin-left: 2vw;
+}
+
 
 .event-details {
     display: flex;
