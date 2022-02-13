@@ -72,6 +72,7 @@ const EventDetails = ({
 
   return (
     <div className="event-details-container">
+      <p onClick={() => setSelectedEvent([])} id="back">&lt;</p>
       <div className="event-details-header">
         {isUpdating ? "Updating" : "Viewing"}
         <input

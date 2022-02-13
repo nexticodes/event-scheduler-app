@@ -13,18 +13,23 @@ const EventsPage = ({ user, updateUser }) => {
   const [modalType, setModalType] = useState("");
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState([]);
-  console.log(user);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(
     function () {
       async function getEvents() {
         const allEvents = await eventsAPI.getUserEvents();
         setEvents(allEvents);
+        setRefresh(false);
       }
       getEvents();
     },
-    [modalVisible, selectedEvent]
+    [modalVisible, selectedEvent, refresh]
   );
+
+  function handleRefresh() {
+    setRefresh(true);
+  }
 
   async function handleUpdateSave(updatedEvent) {
     await eventsAPI.updateEvent(updatedEvent);
@@ -69,7 +74,7 @@ const EventsPage = ({ user, updateUser }) => {
             <button onClick={() => handleModal("event", true)}>
               Add Event
             </button>
-            <button>Search Event</button>
+            <button onClick={handleRefresh}>Refresh</button>
           </div>
           <EventsList
             handleModal={handleModal}

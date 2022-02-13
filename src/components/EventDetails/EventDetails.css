@@ -1,12 +1,15 @@
 .event-details-container {
-    padding: 5vh 0px 5vh 0px;
-    background-color:  white;
+    background-color:  var(--gray-light);
+    padding-bottom: 5vh;
 }
 
 
 .event-details-header {
     display: flex;
     flex-direction: column;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+
 }
 
 .event-details-header textarea {
@@ -45,7 +48,7 @@ textarea:disabled {
     width: 90%;
     border: 2px solid black;
     background-color: white;
-    box-shadow: 0px 0px 5px white;
+    box-shadow: 0px 0px 5px black;
 }
 
 .event-details-form .top div:first-child {
@@ -81,7 +84,7 @@ textarea:disabled {
     border: 1px solid black;
     padding: 20px;
     background-color: gray;
-    box-shadow: 0px 0px 5px white;
+    box-shadow: 0px 0px 5px black;
 }
 
 .bottom-numbers {
@@ -248,7 +251,7 @@ input:disabled {
     flex-direction: column;
     align-items: center;
     padding: 3vh 2vw;
-    background-color: black;
+    background-color: white;
     border: 2px solid black;
 }
 
@@ -259,7 +262,7 @@ input:disabled {
 .event-details-container button {
     background-color: black;
     border-radius: 10px;
-    box-shadow: 0px 2px 10px gray;
+    box-shadow: 0px 2px 10px white;
     color: white;
 }
 
@@ -275,4 +278,13 @@ input:disabled {
 
 .number-labels span {
     color: white;
+}
+
+#back {
+    position: absolute;
+    color: white;
+    font-weight: 500;
+    font-size: 48px;
+    left: 5vw;
+    top: 2vh;
 }
