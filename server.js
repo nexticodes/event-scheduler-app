@@ -22,9 +22,7 @@ app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-const port = process.env.PORT || 3001;
-
-app.listen(port, function() {
+app.listen(process.env.PORT || 3001, function() {
   console.log(`Express app running on port ${port}`)
 });
 
