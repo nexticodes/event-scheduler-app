@@ -19,6 +19,8 @@ router.get('/find/:code', eventsCtrl.findEvent)
 // PUT / UPDATE event participants.
 router.put('/join', eventsCtrl.joinEvent);
 
+router.put('/leave', eventsCtrl.leaveEvent);
+
 // GET API KEY
 // router.get('/map/key', eventsCtrl.getMapAPIKey);
 

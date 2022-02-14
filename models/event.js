@@ -52,4 +52,12 @@ eventSchema.methods.addUserToEvent = async function(userId){
     return event.save();
 }
 
+eventSchema.methods.removeUserFromEvent = async function(userId) {
+    const event = this;
+    const newAttendeesList = event.attendees.filter(a => !a.equals(userId))
+    console.log(newAttendeesList);
+    event.attendees = newAttendeesList;
+    return event.save();
+}
+
 module.exports = mongoose.model('Event', eventSchema);

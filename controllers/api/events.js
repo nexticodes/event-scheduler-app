@@ -10,6 +10,7 @@ module.exports = {
     deleteEvent,
     findEvent,
     joinEvent,
+    leaveEvent,
     getLongLat,
 }
 
@@ -62,6 +63,15 @@ async function joinEvent(req, res) {
     const user = await User.findById(req.body.userId);
     await User.addEvent(req.body.userId, event);
     await event.addUserToEvent(user._id)
+    const newEvent = await Event.findById(req.body.eventId).populate('attendees');
+    res.json(newEvent);
+}
+
+async function leaveEvent(req,res) {
+    const event = await Event.findById(req.body.eventId);
+    const user = await User.findById(req.body.userId);
+    await User.leaveEvent(req.body.userId, event);
+    await event.removeUserFromEvent(user._id);
     const newEvent = await Event.findById(req.body.eventId).populate('attendees');
     res.json(newEvent);
 }

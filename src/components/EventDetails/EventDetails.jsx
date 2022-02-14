@@ -7,6 +7,7 @@ import {GiTwoCoins} from 'react-icons/gi';
 
 const EventDetails = ({
   handleJoinEvent,
+  handleLeaveEvent,
   selectedEvent,
   handleUpdateSave,
   handleDelete,
@@ -215,7 +216,7 @@ const EventDetails = ({
               
               {isUpdating ? (
                 <>
-                <DeleteButton handleDelete={handleDelete} />
+                <DeleteButton handleDelete={handleDelete} mode={'delete'}/>
                 <button onClick={handleSave}>SAVE</button>
                 </>
                 ) : (
@@ -227,7 +228,7 @@ const EventDetails = ({
                   )}
             </>
           }
-          {!isUserHost() && <button>LEAVE EVENT</button>}
+          {!isUserHost() && <DeleteButton handleLeaveEvent={handleLeaveEvent} mode={'leave'}/>}
         </>
       ) : 
             <button id='join-button' onClick={handleJoinEvent}>JOIN EVENT &nbsp; &nbsp; -{updatedEvent.coverFee}<GiTwoCoins size={24} color={'gold'} /></button>

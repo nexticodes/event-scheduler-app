@@ -60,4 +60,15 @@ userSchema.statics.addEvent = async function(id, event){
     });
 }
 
+userSchema.statics.leaveEvent = async function(id, event) {
+    await this.findByIdAndUpdate(id, {
+        $pull: {
+            'events': event._id,
+        },
+        $inc: {
+            'numFlakesLifetime': 1
+        }
+    });
+};
+
 module.exports = mongoose.model('User', userSchema);
