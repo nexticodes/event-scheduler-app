@@ -1,6 +1,7 @@
 # AIGHT BET
+## Don't just plan it, DO IT.
 
-It is a social event scheduling app with a twist. 
+It is a social event scheduling app that encourages people to commit to plans they made with their friends.
 
 
 
