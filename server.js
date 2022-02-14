@@ -23,6 +23,6 @@ app.get('/*', function(req, res) {
 });
 
 app.listen(process.env.PORT || 3001, function() {
-  console.log(`Express app running on port ${port}`)
+  console.log(`Express app running on port ${this.address().port}`)
 });
 
