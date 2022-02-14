@@ -134,7 +134,7 @@ const EventDetails = ({
             )}
         </div>
         <div className="middle">
-          <AttendeesList attendees={selectedEvent.attendees}/>
+          <AttendeesList user={user._id} host={selectedEvent.host} attendees={selectedEvent.attendees}/>
           <div className="location-map-container">
             <AddressMap location={updatedEvent.location}/>
           </div>
