@@ -4,6 +4,7 @@ import DeleteButton from "../DeleteButton/DeleteButton";
 import AttendeesList from "../AttendeesList/AttendeesList";
 import AddressMap from "../AddressMap/AddressMap";
 import {GiTwoCoins} from 'react-icons/gi';
+import Widget from "../Widget/Widget";
 
 const EventDetails = ({
   handleJoinEvent,
@@ -74,6 +75,7 @@ const EventDetails = ({
 
   return (
     <div className="event-details-container">
+      <Widget />
       <p onClick={() => setSelectedEvent([])} id="back">&lt;</p>
       <div className="event-details-header">
         {isUpdating ? "Updating" : "Viewing"}
