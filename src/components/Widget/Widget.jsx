@@ -6,8 +6,8 @@ import ChatBox from '../ChatBox/ChatBox';
 const Widget = () => {
     const [clicked, setClicked] = useState(false);
     return (
-        <div className='widget-container' onClick={() => setClicked(!clicked)}>
-            {clicked ? <ChatBox/> : <BsChatRightText/>}
+        <div className='widget-container' >
+            {clicked ? <ChatBox/> : <BsChatRightText onClick={() => setClicked(!clicked)}/>}
         </div>
     );
 }
