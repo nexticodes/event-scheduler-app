@@ -6,8 +6,17 @@
     flex-direction: column;
 }
 
+.chatbox-container > h1 {
+    color: gold;
+    text-shadow: 0px 0px 10px green;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 10vw;
+    cursor: pointer;
+}
+
 .chatbox-messages {
-    background-color: red;
+    background: linear-gradient(#ffff, inherit);
     height: 70%;
     width: 100%;
     display: flex;
@@ -16,30 +25,39 @@
 
 .chatbox-controls {
     height: 15%;
-    width: 100%;    
+    width: 80%;    
     display: flex;
     margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .chatbox-textarea{
-    width: 80%;
+    width: 70%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .chatbox-textarea > textarea {
     height: 80%;
     width: 100%;
     resize: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
 }
 
 .chatbox-button {
-    width: 20%;
+    width: 25%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: black;
+    border-radius: 20px;
 }
 
 .chatbox-button > svg { 
