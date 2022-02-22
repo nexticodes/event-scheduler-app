@@ -14,9 +14,10 @@ const channelSchema = new Schema({
     timestamps: true
 });
 
-channelSchema.methods.addUser = async (userId) => {
+
+channelSchema.methods.addMessage = async function addMessage(message){
     const channel = this;
-    channel.participants.push(userId);
+    channel.messages.push(message);
     return channel.save();
 }
 
