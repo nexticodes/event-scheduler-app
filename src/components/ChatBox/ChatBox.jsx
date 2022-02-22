@@ -2,7 +2,7 @@ import './ChatBox.css';
 import {BiMailSend} from 'react-icons/bi'
 import { useState } from 'react';
 
-const ChatBox = ({handleX}) => {
+const ChatBox = ({channelId, handleX}) => {
     const [message, setMessage] = useState('');
     
     function handleChange(e) {

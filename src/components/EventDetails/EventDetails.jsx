@@ -75,7 +75,7 @@ const EventDetails = ({
 
   return (
     <div className="event-details-container">
-      <Widget />
+      <Widget channelId={selectedEvent.channel._id}/>
       <p onClick={() => setSelectedEvent([])} id="back">&lt;</p>
       <div className="event-details-header">
         {isUpdating ? "Updating" : "Viewing"}
