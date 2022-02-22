@@ -49,6 +49,12 @@ eventSchema.methods.updateEvent = async function(newEventInfo){
 eventSchema.methods.addUserToEvent = async function(userId){
     const event = this;
     event.attendees.push(userId);
+    const channel = await mongoose.model('Channel').findByIdAndUpdate(this.channel._id, {
+        $push: {
+            'participants': userId
+        }
+    });
+    channel.save();
     return event.save();
 }
 
