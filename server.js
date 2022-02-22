@@ -17,6 +17,7 @@ app.use(require('./config/checkToken'));
 
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/events', ensureLoggedIn, require('./routes/api/events'));
+app.use('/api/messages', ensureLoggedIn, require('./routes/api/messages'));
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
