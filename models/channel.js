@@ -14,4 +14,10 @@ const channelSchema = new Schema({
     timestamps: true
 });
 
+channelSchema.methods.addUser = async (userId) => {
+    const channel = this;
+    channel.participants.push(userId);
+    return channel.save();
+}
+
 module.exports = mongoose.model('Channel', channelSchema);
