@@ -5,3 +5,7 @@ const BASE_URL = '/api/messages';
 export function sendMessage(channelId, messageData){
     return sendRequest(`${BASE_URL}/${channelId}`, 'POST', messageData)
 }
+
+export function getMessages(channelId){
+    return sendRequest(`${BASE_URL}/${channelId}`);
+}
