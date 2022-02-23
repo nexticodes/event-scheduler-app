@@ -1,11 +1,21 @@
 import './ChatBox.css';
 import {BiMailSend} from 'react-icons/bi'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as messagesAPI from '../../utilities/messages-api';
 
 const ChatBox = ({userId, channelId, handleX}) => {
     const [message, setMessage] = useState('');
-    
+    const [allMessages, setAllMessages] = useState([]);
+
+
+    useEffect(() => {
+        async function getMessages(){
+            const channelMessages = await messagesAPI.getMessages(channelId);
+            setAllMessages(channelMessages);
+        }
+        getMessages();
+    }, [])
+
     function handleChange(e) {
         setMessage(e.target.value);
     }
