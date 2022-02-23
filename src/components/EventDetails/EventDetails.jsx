@@ -7,6 +7,7 @@ import {GiTwoCoins} from 'react-icons/gi';
 import Widget from "../Widget/Widget";
 
 const EventDetails = ({
+  socket,
   handleJoinEvent,
   handleLeaveEvent,
   selectedEvent,
@@ -75,7 +76,7 @@ const EventDetails = ({
 
   return (
     <div className="event-details-container">
-      {isUserInEvent() && <Widget userId={user._id} channelId={selectedEvent.channel}/>}
+      {isUserInEvent() && <Widget socket={socket} userId={user._id} channelId={selectedEvent.channel}/>}
       <h1 onClick={() => setSelectedEvent([])} id="back">&lt;&lt;</h1>
       <div className="event-details-header">
         {isUpdating ? "Updating" : "Viewing"}
