@@ -2,7 +2,8 @@ const Message = require('./../../models/message');
 const Channel = require('./../../models/channel');
 
 module.exports = {
-    create
+    create,
+    index
 }
 
 async function create(req, res){
@@ -10,4 +11,9 @@ async function create(req, res){
     const channel = await Channel.findById(req.params.channelId);
     await channel.addMessage(newMessage);
     res.json('Message Sent');
+}
+
+async function index(req, res){
+    const channel = await Channel.findById(req.params.channelId).populate('messages');
+    res.json(channel.messages);
 }
