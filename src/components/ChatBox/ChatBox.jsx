@@ -2,6 +2,7 @@ import './ChatBox.css';
 import {BiMailSend} from 'react-icons/bi'
 import { useState, useEffect } from 'react';
 import * as messagesAPI from '../../utilities/messages-api';
+import ChatMessage from '../ChatMessage/ChatMessage';
 
 const ChatBox = ({userId, channelId, handleX}) => {
     const [message, setMessage] = useState('');
@@ -29,7 +30,7 @@ const ChatBox = ({userId, channelId, handleX}) => {
         <div className='chatbox-container'>
             <h1 onClick={handleX}>X</h1>
             <div className='chatbox-messages'>
-
+                {allMessages.map((m, i) => <ChatMessage userId={userId} m={m} i={i} key={m._id}/>).reverse()}
             </div>
             <form className='chatbox-controls'>
                 <div className='chatbox-textarea'>
