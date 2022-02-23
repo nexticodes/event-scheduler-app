@@ -1,0 +1,28 @@
+.chat-bubble {
+    color: white;
+    background-color: gray;
+    padding: 20px;
+    width: 50%;
+    text-align: left;
+    margin: 10px 0;
+    text-shadow: 0px 0px 5px black;
+    font-size: 18px;
+    box-shadow: 0px 5px 5px gray;
+    
+}
+.chat-bubble > p {
+    margin: 0;
+}
+
+.chat-bubble.owner {
+    margin-left: auto;
+    margin-right: 25px;
+    background-color: rgb(255, 215, 0);
+    border-radius: 10px 10px 0px 10px;
+}
+
+.chat-bubble.other {
+    margin-right: auto;
+    margin-left: 25px;
+    border-radius: 10px 10px 10px 0px;
+}
