@@ -6,6 +6,7 @@ import ChatBox from '../ChatBox/ChatBox';
 const Widget = ({socket, userId, channelId}) => {
     const [clicked, setClicked] = useState(false);
     async function handleX() {
+        await socket.emit('leave-chat', {channelId})
         setClicked(!clicked);
     }
     
