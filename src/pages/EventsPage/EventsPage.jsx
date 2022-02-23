@@ -8,6 +8,9 @@ import EventDetails from "../../components/EventDetails/EventDetails";
 
 import * as eventsAPI from "../../utilities/events-api";
 
+import io from 'socket.io-client';
+const socket = io.connect('http://localhost:3001');
+
 const EventsPage = ({ user, updateUser }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalType, setModalType] = useState("");
@@ -92,6 +95,7 @@ const EventsPage = ({ user, updateUser }) => {
         </>
       ) : (
         <EventDetails
+          socket={socket}
 					user={user}
           handleLeaveEvent={handleLeaveEvent}
 					handleJoinEvent={handleJoinEvent}
