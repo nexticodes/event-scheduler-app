@@ -3,14 +3,19 @@ import {useState} from 'react';
 import {BsChatRightText} from 'react-icons/bs'
 import ChatBox from '../ChatBox/ChatBox';
 
-const Widget = ({userId, channelId}) => {
+const Widget = ({socket, userId, channelId}) => {
     const [clicked, setClicked] = useState(false);
-    function handleX() {
+    async function handleX() {
         setClicked(!clicked);
+    }
+    
+    async function handleChatClick () {
+        await socket.emit('join-chat', {channelId})
+        setClicked(!clicked)
     }
     return (
         <div className='widget-container' >
-            {clicked ? <ChatBox userId={userId} channelId={channelId} handleX={handleX}/> : <BsChatRightText onClick={() => setClicked(!clicked)}/>}
+            {clicked ? <ChatBox socket={socket} userId={userId} channelId={channelId} handleX={handleX}/> : <BsChatRightText onClick={handleChatClick}/>}
         </div>
     );
 }
