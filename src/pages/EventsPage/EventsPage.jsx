@@ -1,6 +1,5 @@
 import "./EventsPage.css";
 import { useEffect, useState } from "react";
-import ProfileBox from "../../components/ProfileBox/ProfileBox";
 import ProfileDashboard from "../../components/ProfileDashboard/ProfileDashboard";
 import EventsList from "../../components/EventsList/EventsList";
 import Modal from "../../components/Modal/Modal";
@@ -77,7 +76,6 @@ const EventsPage = ({ user, updateUser }) => {
       {selectedEvent.length === 0 ? (
         <>
           <div className="user-profile-container">
-            <ProfileBox user={user} />
             <ProfileDashboard user={user} />
           </div>
           <div className="events-options-container">
